@@ -1,0 +1,69 @@
+.TitleBar {
+    display: flex;
+    background-color: #3f51b5;
+
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%),
+        0 1px 10px 0 rgb(0 0 0 / 12%);
+    justify-content: space-between;
+    align-items: center;
+    .IconButtonBox {
+        width: 200px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .RadiusBox {
+            position: relative;
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+            &:hover {
+                background-color: #5362bd;
+                shape-outside: circle();
+            }
+            & > span {
+                position: absolute;
+                transform: translate(-50%, -50%);
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                background-color: rgb(25, 231, 241);
+                border-radius: 50%;
+
+                animation: big 1s;
+            }
+        }
+        span {
+            white-space: nowrap;
+            color: white;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+    }
+    .spanText {
+        white-space: nowrap;
+        color: white;
+        font-size: 30px;
+        font-weight: bolder;
+    }
+}
+
+@keyframes big {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+    }
+}
