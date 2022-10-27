@@ -1,18 +1,19 @@
 import { useState, Suspense } from "react";
 import LoadingRouteHook from "@/hook/LoadingRouteHook";
+import IsExtendHook from "@/hook/IsExtendHook";
 import Style from "./App.module.less";
 import TitleBar from "./TitleBar";
 import Container from "./Container";
 import NarBar from "./Container/NavBar";
 import Page from "./Container/Page";
-import Loading from "@/component/Loading";
+import GobalLoading from "./GobalLoading";
 function App() {
-    const [isExtend, setIsExtend] = useState(true);
+    const [isExtend, setIsExtend]  = IsExtendHook(600);
     const [isLaoding] = LoadingRouteHook();
 
     return (
         <div className={`${Style.App}`}>
-            {isLaoding ? <Loading /> : null}
+            {isLaoding ? <GobalLoading /> : null}
             <TitleBar
                 IconClick={() => {
                     setIsExtend((state) => !state);
@@ -20,7 +21,7 @@ function App() {
             />
             <Container>
                 <NarBar isExtend={isExtend} />
-                <Suspense fallback={<Loading />}>
+                <Suspense fallback={<GobalLoading />}>
                     <Page />
                 </Suspense>
             </Container>

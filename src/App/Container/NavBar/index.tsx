@@ -3,6 +3,7 @@ import Style from "./NavBar.module.less";
 import NavList from "./NavList";
 import NavItem from "./NavList/NavItem";
 import { BiTestTube } from "react-icons/bi";
+import { AiOutlineUnorderedList } from "react-icons/ai";
 interface Props {
     isExtend: boolean;
 }
@@ -19,6 +20,9 @@ const index: React.FC<Props> = ({ isExtend }) => {
                 </NavItem>
                 <NavItem to="/test2" content="Test2">
                     <BiTestTube size={25} />
+                </NavItem>
+                <NavItem to="/InformationDisplay" content="成员信息">
+                    <AiOutlineUnorderedList size={25} />
                 </NavItem>
             </NavList>
         </div>

@@ -11,7 +11,7 @@ export default (): [boolean] => {
     useEffect(() => {
         !isLaoding && dispatch(changeLoading())
     }, [pathname])
-
+    
     useEffect(() => {
         isLaoding && setTimeout(() => {
             dispatch(changeLoading())
