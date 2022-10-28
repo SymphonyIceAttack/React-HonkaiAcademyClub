@@ -18,6 +18,12 @@
 		{
 			"path": "./src/hook"
 		},
+		{
+			"path": "./src/Types"
+		},
+		{
+			"path": "./src/component"
+		},
 
 	],
 	"settings": {

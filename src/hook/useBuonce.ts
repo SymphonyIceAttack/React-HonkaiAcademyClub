@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const Bounce = () => {
+export const useBounce = () => {
     const ContentRef = useRef<HTMLDivElement>(null);
     const ClickEvent = (e: MouseEvent) => {
         let obj = ContentRef.current;

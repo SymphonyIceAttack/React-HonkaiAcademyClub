@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { useRoutes, Navigate } from "react-router-dom";
 const TestPage = lazy(() => import("./TestPage"));
 const InformationDisplay = lazy(() => import("./InformationDisplay"));
+const InformationModification = lazy(() => import("./InformationModification"));
 export default () => {
     return useRoutes([
         {
@@ -15,6 +16,10 @@ export default () => {
         {
             path: "/InformationDisplay",
             element: <InformationDisplay />,
+        },
+        {
+            path: "/InformationModification",
+            element: <InformationModification />,
         },
         {
             path: "/",

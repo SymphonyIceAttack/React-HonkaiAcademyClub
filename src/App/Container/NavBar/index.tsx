@@ -24,6 +24,9 @@ const index: React.FC<Props> = ({ isExtend }) => {
                 <NavItem to="/InformationDisplay" content="成员信息">
                     <AiOutlineUnorderedList size={25} />
                 </NavItem>
+                <NavItem to="/InformationModification" content="信息修改">
+                    <AiOutlineUnorderedList size={25} />
+                </NavItem>
             </NavList>
         </div>
     );

@@ -1,13 +1,13 @@
 import React from "react";
 import Style from "./TitleBar.module.less";
 import { AiOutlineUnorderedList } from "react-icons/ai";
-import { Bounce } from "@/hook/Buonce";
+import { useBounce } from "@/hook/useBuonce";
 interface Props {
     IconClick: () => void;
 }
 
 const index: React.FC<Props> = ({ IconClick }) => {
-    const [ButtonListRef] = Bounce();
+    const [ButtonListRef] = useBounce();
     return (
         <div className={`${Style.TitleBar}`}>
             <div className={`${Style.IconButtonBox}`}>
