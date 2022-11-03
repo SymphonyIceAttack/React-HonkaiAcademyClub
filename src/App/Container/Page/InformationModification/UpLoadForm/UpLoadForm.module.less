@@ -1,59 +1,10 @@
 .UpLoadForm {
     width: 80%;
-    margin: 0 auto;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 5px solid pink;
     padding-top: 10px;
     border-radius: 5px;
-    margin-top: 10px;
-    .avatarImageContainer {
-        height: 320px;
-        width: 230px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        img {
-            height: 220px;
-            width: 220px;
-            border-radius: 5px;
-        }
-        .inputfileContainer {
-            height: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-bottom: 10px;
-            .inputfile {
-                width: 0.1px;
-                height: 0.1px;
-                opacity: 0;
-                overflow: hidden;
-                position: absolute;
-                z-index: -1;
-            }
-            .inputfile ~ .LabelBox {
-                font-weight: 700;
-                cursor: pointer;
-                color: white;
-                display: inline-block;
-                background-color: red;
-                padding: 5px;
-                border-radius: 5px;
-                height: 35px;
-                line-height: 35px;
-                display: flex;
-                align-items: center;
-                span {
-                    font-size: 30px;
-                }
-            }
-            .inputfile:focus ~ .LabelBox,
-            .inputfile ~ .LabelBox:hover {
-                background-color: rgb(89, 255, 0);
-            }
-        }
-    }
 }

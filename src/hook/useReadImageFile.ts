@@ -8,6 +8,7 @@ export default (): [React.RefObject<HTMLInputElement>, React.RefObject<HTMLImage
         const reads = new FileReader();
         const inputElement = InputFileRef.current!
         const imageElemnt = ImageRef.current!
+
         const f = inputElement.files![0]
         reads.readAsDataURL(f);
         reads.onload = function (e) {
@@ -22,6 +23,7 @@ export default (): [React.RefObject<HTMLInputElement>, React.RefObject<HTMLImage
     }
     useEffect(() => {
         const inputElement = InputFileRef.current!
+
         inputElement.addEventListener('change', changepic)
         return () => {
             inputElement.removeEventListener('change', changepic)
