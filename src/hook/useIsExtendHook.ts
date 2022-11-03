@@ -1,9 +1,18 @@
 
 import React, { useState, Suspense, useEffect, SetStateAction, useRef } from "react";
 import { useLocation } from 'react-router-dom';
-export default (size: number): [boolean, React.Dispatch<SetStateAction<boolean>>] => {
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "@/store";
+import { useIsExtendStore, changeIsExtend } from "@/store";
+import type { PathForExtendType } from '@/Types/PathForextendType'
+export default (size: number): [boolean, (isExtend: boolean) => void] => {
+    const PathForExtendArr: PathForExtendType[] = ["LoginDisplay"]
     const [windowWith, setWindowWith] = useState(window.innerWidth);
-    const [isExtend, setIsExtend] = useState(true);
+    const isExtend = useSelector(useIsExtendStore())
+    const dispatch = useDispatch<AppDispatch>()
+    const changeIsExtendDispatch = (isExtend: boolean) => {
+        dispatch(changeIsExtend(isExtend))
+    }
     const { pathname } = useLocation();
     const NavBarRef = useRef<HTMLDivElement>(null)
 
@@ -17,13 +26,16 @@ export default (size: number): [boolean, React.Dispatch<SetStateAction<boolean>>
         }
     }, [])
     useEffect(() => {
-        setIsExtend(windowWith >= size);
+        changeIsExtendDispatch(windowWith >= size);
         return () => { };
     }, [windowWith]);
     useEffect(() => {
-        windowWith <= size && setIsExtend(false)
+        PathForExtendArr.forEach((item) => {
+            item == pathname ? changeIsExtendDispatch(false) : null
+        })
+        windowWith <= size && changeIsExtendDispatch(false)
     }, [pathname])
 
 
-    return [isExtend, setIsExtend]
+    return [isExtend, changeIsExtendDispatch]
 }

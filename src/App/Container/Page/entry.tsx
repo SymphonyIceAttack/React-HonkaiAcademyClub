@@ -1,8 +1,11 @@
 import { lazy } from "react";
 import { useRoutes, Navigate } from "react-router-dom";
+
 const TestPage = lazy(() => import("./TestPage"));
 const InformationDisplay = lazy(() => import("./InformationDisplay"));
 const InformationModification = lazy(() => import("./InformationModification"));
+const LoginDisplay = lazy(() => import("./LoginDisplay"));
+
 export default () => {
     return useRoutes([
         {
@@ -22,8 +25,12 @@ export default () => {
             element: <InformationModification />,
         },
         {
+            path:"/LoginDisplay",
+            element:<LoginDisplay/>
+        },
+        {
             path: "/",
-            element: <Navigate to="/InformationDisplay" />,
+            element: <Navigate to="/LoginDisplay" />,
         },
     ]);
 };

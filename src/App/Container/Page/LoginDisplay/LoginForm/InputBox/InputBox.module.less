@@ -1,0 +1,30 @@
+.InputBox {
+    margin: 10px 5px;
+    position: relative;
+    width: 80%;
+    label {
+        position: absolute;
+        color: rgb(0, 162, 255);
+        font-size: 30px;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        transition: all 0.3s;
+    }
+    input {
+        height: 80px;
+        width: 100%;
+        padding: 10px 5px 0px 5px;
+        font-size: 25px;
+        outline: none;
+        border: none;
+        color: rgb(0, 149, 255);
+        border-radius: 5px;
+        box-shadow: 0 0 10px 3px #ccc;
+        &:focus ~ label,
+        &:valid ~ label {
+            top: 15px;
+            font-size: 20px;
+        }
+    }
+}

@@ -8,7 +8,7 @@ import NarBar from "./Container/NavBar";
 import Page from "./Container/Page";
 import GobalLoading from "./GobalLoading";
 function App() {
-    const [isExtend, setIsExtend]  = useIsExtendHook(600);
+    const [isExtend, setIsExtend] = useIsExtendHook(600);
     const [isLaoding] = useLoadingRouteHook();
 
     return (
@@ -16,7 +16,7 @@ function App() {
             {isLaoding ? <GobalLoading /> : null}
             <TitleBar
                 IconClick={() => {
-                    setIsExtend((state) => !state);
+                    setIsExtend(!isExtend);
                 }}
             />
             <Container>
