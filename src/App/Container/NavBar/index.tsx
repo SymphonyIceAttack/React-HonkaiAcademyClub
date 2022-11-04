@@ -15,12 +15,6 @@ const index: React.FC<Props> = ({ isExtend }) => {
             style={{ width: isExtend ? "240px" : "0px" }}
         >
             <NavList>
-                <NavItem to="/test1" content="Test1">
-                    <BiTestTube size={25} />
-                </NavItem>
-                <NavItem to="/test2" content="Test2">
-                    <BiTestTube size={25} />
-                </NavItem>
                 <NavItem to="/InformationDisplay" content="成员信息">
                     <AiOutlineUnorderedList size={25} />
                 </NavItem>

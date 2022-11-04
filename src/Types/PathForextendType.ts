@@ -1,1 +1,1 @@
-export type PathForExtendType = "LoginDisplay"
+export type PathForExtendType = "/LoginDisplay"
