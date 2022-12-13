@@ -1,0 +1,31 @@
+.Box {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.3rem;
+    display: flex;
+    margin-top: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+.Box:nth-child(even) {
+    // background-color: rgba(32, 173, 201, 0.688);
+    box-shadow: 0 0 3px 3px rgba(204, 204, 204, 0.688);
+    transform: translateX(-200%);
+    opacity: 0;
+}
+
+.Box:nth-child(odd) {
+    // background-color: rgba(26, 170, 207, 0.688);
+    box-shadow: 0 0 3px 3px rgba(204, 204, 204, 0.688);
+    transform: translateX(200%);
+    opacity: 0;
+}
+
+.showCenter {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+}

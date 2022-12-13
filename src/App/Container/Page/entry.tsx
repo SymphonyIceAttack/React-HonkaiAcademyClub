@@ -5,7 +5,7 @@ const TestPage = lazy(() => import("./TestPage"));
 const InformationDisplay = lazy(() => import("./InformationDisplay"));
 const InformationModification = lazy(() => import("./InformationModification"));
 const LoginDisplay = lazy(() => import("./LoginDisplay"));
-
+const MessageBoard = lazy(() => import("./MessageBoard"));
 export default () => {
     return useRoutes([
         {
@@ -25,8 +25,12 @@ export default () => {
             element: <InformationModification />,
         },
         {
-            path:"/LoginDisplay",
-            element:<LoginDisplay/>
+            path: "/LoginDisplay",
+            element: <LoginDisplay />,
+        },
+        {
+            path: "/MessageBoard",
+            element: <MessageBoard />,
         },
         {
             path: "/",
