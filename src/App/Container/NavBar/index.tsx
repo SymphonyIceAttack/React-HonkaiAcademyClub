@@ -27,6 +27,12 @@ const index: React.FC<Props> = ({ isExtend }) => {
                 <NavItem to="/LoginDisplay" content="登陆页面">
                     <BiChalkboard size={25} />
                 </NavItem>
+                <NavItem to="/BackUrlDisplay" content="后端服务器指定">
+                    <BiChalkboard size={25} />
+                </NavItem>
+                <NavItem to="/ScorePage" content="评分页面">
+                    <BiChalkboard size={25} />
+                </NavItem>
             </NavList>
         </div>
     );

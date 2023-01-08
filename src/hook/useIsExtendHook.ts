@@ -6,7 +6,7 @@ import { AppDispatch, RootState } from "@/store";
 import { useIsExtendStore, changeIsExtend } from "@/store";
 import type { PathForExtendType } from '@/Types/PathForextendType'
 export default (size: number): [boolean, (isExtend: boolean) => void] => {
-    const PathForExtendArr: PathForExtendType[] = ["/LoginDisplay"]
+    const PathForExtendArr: PathForExtendType = ["/LoginDisplay","/RegisterDisplay","/BackUrlDisplay"]
     const [windowWith, setWindowWith] = useState(window.innerWidth);
     const isExtend = useSelector(useIsExtendStore())
     const dispatch = useDispatch<AppDispatch>()

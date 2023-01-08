@@ -10,8 +10,10 @@ const index: React.FC<Props> = ({ content, ClickEvent, type }) => {
         <button
             type={type}
             className={`${Style.LoginButton}`}
-            onClick={() => ClickEvent()}
-        >
+            onClick={(event) => {
+                event.preventDefault();
+                ClickEvent();
+            }}>
             {content}
         </button>
     );

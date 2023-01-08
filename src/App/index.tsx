@@ -1,4 +1,6 @@
 import { useState, Suspense } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import useLoadingRouteHook from "@/hook/useLoadingRouteHook";
 import useIsExtendHook from "@/hook/useIsExtendHook";
 import Style from "./App.module.less";
@@ -25,6 +27,7 @@ function App() {
                     <Page />
                 </Suspense>
             </Container>
+            <ToastContainer />
         </div>
     );
 }
