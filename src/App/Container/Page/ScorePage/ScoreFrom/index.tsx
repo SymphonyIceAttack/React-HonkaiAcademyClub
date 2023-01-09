@@ -1,17 +1,10 @@
 import React from "react";
 import Style from "./ScoreFrom.module.less";
-import ScoreItem from "./ScoreItem";
-interface Props{
-    
+interface Props {
+    children: React.ReactNode[] | React.ReactNode;
 }
-const index = () => {
-    return (
-        <div className={`${Style.ScoreFrom}`}>
-            <ScoreItem />
-            <ScoreItem />
-            <ScoreItem />
-        </div>
-    );
+const index: React.FC<Props> = ({ children }) => {
+    return <div className={`${Style.ScoreFrom}`}>{children}</div>;
 };
 
 export default index;
