@@ -1,0 +1,40 @@
+.FilterInput {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    label {
+        white-space: nowrap;
+        font-weight: bolder;
+        color: grey;
+        font-size: 30px;
+        margin-right: 20px;
+    }
+    input {
+        height: 50%;
+        box-sizing: border-box;
+        border: none;
+        font-size: 20px;
+        padding: 5px;
+        padding-left: 10px;
+        border-radius: 5px;
+        outline: none;
+        box-shadow: 0 0 1px gray;
+        &:is(:focus, :valid) {
+            box-shadow: 0 0 3px grey;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .FilterInput {
+        label {
+            font-size: 15px;
+            margin-right: 10px;
+            display: none;
+        }
+        input {
+            width: 100px;
+            padding-left: 5px;
+            padding: 2px;
+        }
+    }
+}

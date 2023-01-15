@@ -19,7 +19,7 @@ export const useBounce = () => {
         ContentRef.current?.appendChild(circle);
         setTimeout(function () {
             circle.remove();
-        }, 1000);
+        }, 10000);
     };
     useEffect(() => {
         ContentRef.current?.addEventListener("click", ClickEvent);

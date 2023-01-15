@@ -1,6 +1,6 @@
 import React from "react";
 import useBackUrlHook from "@/hook/useBackUrlHook";
-import { TOKEN } from "@/utils/Localkey";
+import GetHeaderToken from "@/utils/GetHeaderToken";
 interface Message {
     staus: number;
     account: string;
@@ -12,11 +12,7 @@ export default (): [() => Promise<Message>] => {
     const requestValidateUser = async (): Promise<Message> => {
         return fetch(`${BackUrl}/ValidateUser`, {
             method: "Post",
-            headers: {
-                authorization: `Bearer ${
-                    localStorage.getItem(TOKEN) || "Bearer "
-                }`,
-            },
+            headers: GetHeaderToken(),
         }).then((res) => res.json());
     };
     return [requestValidateUser];

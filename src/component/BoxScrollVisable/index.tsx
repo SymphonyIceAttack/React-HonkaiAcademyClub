@@ -20,10 +20,14 @@ const Box: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
     useEffect(() => {
         window.addEventListener("scroll", ScrollWatch);
+        window.addEventListener("touchmove", ScrollWatch);
+        window.addEventListener("touchcancel", ScrollWatch);
         document.documentElement.scrollTop = 10;
 
         return () => {
             window.removeEventListener("scroll", ScrollWatch);
+            window.removeEventListener("touchmove", ScrollWatch);
+            window.addEventListener("touchcancel", ScrollWatch);
         };
     }, []);
 

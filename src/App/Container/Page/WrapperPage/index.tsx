@@ -4,7 +4,7 @@ import validateBackedHook from "./validateBackedHook";
 import validateUserHook from "./validateUserHook";
 import useBackUrlHook from "@/hook/useBackUrlHook";
 import { toast } from "react-toastify";
-import { USERACCOUNT } from "@/utils/Localkey";
+import GetLocalAccount from "@/utils/GetLocalAccount";
 interface Props {
     children: React.ReactNode;
 }
@@ -30,24 +30,19 @@ const WrapperPage: React.FC<Props> = ({ children }) => {
             }
 
             const validDataUser = await requestValidateUser();
-            const UserAccount = JSON.parse(
-                localStorage.getItem(USERACCOUNT) ||
-                    JSON.stringify({ account: "" })
-            ) as {
-                account: string;
-            };
+            const UserAccount = GetLocalAccount();
 
             if (
                 pathname !== "/BackUrlDisplay" &&
                 pathname !== "/LoginDisplay" &&
                 pathname !== "/RegisterDisplay" &&
-                validDataUser.account !== UserAccount.account
+                validDataUser.account !== UserAccount
             ) {
                 toast("用户未登陆");
                 navigate("/LoginDisplay");
                 return;
             } else {
-                validDataUser.account === UserAccount.account &&
+                validDataUser.account === UserAccount &&
                     setIsVlidate(true);
             }
         };

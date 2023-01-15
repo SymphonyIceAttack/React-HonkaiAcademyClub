@@ -2,6 +2,7 @@ import React from "react";
 import Style from "./ScoreItem.module.less";
 
 const index = () => {
+    
     return (
         <div className={`${Style.ScoreItem}`}>
             <div className={`${Style.checkered}`}>昵称</div>
