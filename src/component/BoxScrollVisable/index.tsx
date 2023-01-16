@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import BoxStyle from "./Box.module.less";
 
 const Box: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [isShow, setIsShow] = useState(false);
+    const [isShow, setIsShow] = useState(true);
     const BoxRef = useRef<HTMLDivElement>(null);
     let timer: any = null;
     const ScrollWatch = useCallback(() => {
@@ -22,7 +22,6 @@ const Box: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         window.addEventListener("scroll", ScrollWatch);
         window.addEventListener("touchmove", ScrollWatch);
         window.addEventListener("touchcancel", ScrollWatch);
-        document.documentElement.scrollTop = 10;
 
         return () => {
             window.removeEventListener("scroll", ScrollWatch);

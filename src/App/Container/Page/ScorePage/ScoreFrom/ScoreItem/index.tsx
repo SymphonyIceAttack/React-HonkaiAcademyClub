@@ -15,8 +15,12 @@ const index: React.FC<Props> = ({
 }) => {
     return (
         <div className={`${Style.ScoreItem}`}>
-            <div className={`${Style.checkered}`}>{NickName}</div>
-            <div className={`${Style.checkered}`}>{Account}</div>
+            <div className={`${Style.checkered}`}>
+                <span>{NickName}</span>
+            </div>
+            <div className={`${Style.checkered}`}>
+                <span>{Account}</span>
+            </div>
             <div className={`${Style.checkered}`}>{MissingTimes}</div>
             <div className={`${Style.checkered}`}>
                 <input
@@ -25,7 +29,7 @@ const index: React.FC<Props> = ({
                     id=""
                     checked={isFinished}
                     onChange={(e) => {
-                        disPatchChange(Account,e.target.checked)
+                        disPatchChange(Account, e.target.checked);
                     }}
                 />
             </div>

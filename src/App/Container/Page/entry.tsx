@@ -9,7 +9,7 @@ const RegisterDisplay = lazy(() => import("./RegisterDisplay"));
 const MessageBoard = lazy(() => import("./MessageBoard"));
 const BackUrlDisplay = lazy(() => import("./BackUrlDisplay"));
 const ScorePage = lazy(() => import("./ScorePage"));
-
+const LeaderboardDisplay = lazy(() => import("./LeaderboardDisplay"));
 export default () => {
     return useRoutes([
         {
@@ -73,6 +73,14 @@ export default () => {
             element: (
                 <WrapperPage>
                     <ScorePage />
+                </WrapperPage>
+            ),
+        },
+        {
+            path: "/LeaderboardDisplay",
+            element: (
+                <WrapperPage>
+                    <LeaderboardDisplay />
                 </WrapperPage>
             ),
         },
