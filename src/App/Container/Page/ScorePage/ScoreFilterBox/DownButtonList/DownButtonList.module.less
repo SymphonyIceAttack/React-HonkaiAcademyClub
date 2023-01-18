@@ -1,0 +1,30 @@
+.DownButtonList {
+    margin: 0 15px;
+    position: relative;
+    & > button {
+        width: 100px;
+        height: 35px;
+        font-size: 20px;
+        border: none;
+        border-radius: 3px;
+        background-color: rgba(36, 149, 220, 0.755);
+        cursor: pointer;
+        &:hover {
+            box-shadow: 0 0 5px 2px;
+        }
+    }
+    .HideButtonList {
+        position: absolute;
+        top: 55px;
+        left: -10px;
+        background-color: white;
+        z-index: 10;
+        border-radius: 5px;
+        box-shadow: 0 0 3px 1px black;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        padding: 10px 5px;
+    }
+}

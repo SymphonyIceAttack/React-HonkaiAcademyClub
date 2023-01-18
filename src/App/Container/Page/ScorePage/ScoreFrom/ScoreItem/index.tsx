@@ -3,14 +3,14 @@ import Style from "./ScoreItem.module.less";
 import type { ScoreItemType } from "../..";
 
 interface Props extends ScoreItemType {
-    disPatchChange: (Account: string, isFinished: boolean) => void;
+    disPatchChange: (Account: string, isMissed: boolean) => void;
 }
 
 const index: React.FC<Props> = ({
     NickName,
     Account,
     MissingTimes,
-    isFinished,
+    isMissed,
     disPatchChange,
 }) => {
     return (
@@ -27,7 +27,7 @@ const index: React.FC<Props> = ({
                     type="checkbox"
                     name=""
                     id=""
-                    checked={isFinished}
+                    checked={isMissed}
                     onChange={(e) => {
                         disPatchChange(Account, e.target.checked);
                     }}

@@ -6,14 +6,14 @@ import GetHeaderToken from "@/utils/GetHeaderToken";
 export default (): [
     ScoreItemType[],
     React.Dispatch<React.SetStateAction<ScoreItemType[]>>,
-    () => Promise<void>
+    (timeStamp: string) => Promise<void>
 ] => {
     const [BackUrl] = useBackUrlHook();
     const account = GetLocalAccount();
     const [ScoreItemArr, setScoreItem] = useState<ScoreItemType[]>([]);
-    const requestScoreList = async () => {
+    const requestScoreList = async (timeStamp: string) => {
         fetch(
-            `${BackUrl}/ScoreList?account=${account}&timeStamp=${new Date().getTime()}`,
+            `${BackUrl}/ScoreList?account=${account}&timeStamp=${timeStamp}`,
             {
                 method: "Post",
                 headers: GetHeaderToken(),
@@ -24,9 +24,6 @@ export default (): [
                 setScoreItem(res.UserScoreList);
             });
     };
-    useEffect(() => {
-        requestScoreList();
-    }, []);
 
     return [ScoreItemArr, setScoreItem, requestScoreList];
 };
