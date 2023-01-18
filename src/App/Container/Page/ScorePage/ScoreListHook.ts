@@ -12,10 +12,13 @@ export default (): [
     const account = GetLocalAccount();
     const [ScoreItemArr, setScoreItem] = useState<ScoreItemType[]>([]);
     const requestScoreList = async () => {
-        fetch(`${BackUrl}/ScoreList?account=${account}`, {
-            method: "Post",
-            headers: GetHeaderToken(),
-        })
+        fetch(
+            `${BackUrl}/ScoreList?account=${account}&timeStamp=${new Date().getTime()}`,
+            {
+                method: "Post",
+                headers: GetHeaderToken(),
+            }
+        )
             .then((res) => res.json())
             .then((res: { UserScoreList: ScoreItemType[]; status: number }) => {
                 setScoreItem(res.UserScoreList);

@@ -10,6 +10,7 @@ const MessageBoard = lazy(() => import("./MessageBoard"));
 const BackUrlDisplay = lazy(() => import("./BackUrlDisplay"));
 const ScorePage = lazy(() => import("./ScorePage"));
 const LeaderboardDisplay = lazy(() => import("./LeaderboardDisplay"));
+const IllustratedBookDisplay = lazy(() => import("./IllustratedBookDisplay"));
 export default () => {
     return useRoutes([
         {
@@ -81,6 +82,14 @@ export default () => {
             element: (
                 <WrapperPage>
                     <LeaderboardDisplay />
+                </WrapperPage>
+            ),
+        },
+        {
+            path: "/IllustratedBookDisplay",
+            element: (
+                <WrapperPage>
+                    <IllustratedBookDisplay />
                 </WrapperPage>
             ),
         },

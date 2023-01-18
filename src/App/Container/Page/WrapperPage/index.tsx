@@ -42,8 +42,7 @@ const WrapperPage: React.FC<Props> = ({ children }) => {
                 navigate("/LoginDisplay");
                 return;
             } else {
-                validDataUser.account === UserAccount &&
-                    setIsVlidate(true);
+                validDataUser.account === UserAccount && setIsVlidate(true);
             }
         };
 
