@@ -12,7 +12,6 @@ import GobalLoading from "./GobalLoading";
 function App() {
     const [isExtend, setIsExtend] = useIsExtendHook(600);
     const [isLaoding] = useLoadingRouteHook();
-
     return (
         <div className={`${Style.App}`}>
             {isLaoding ? <GobalLoading /> : null}

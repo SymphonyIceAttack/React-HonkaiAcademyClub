@@ -18,7 +18,6 @@ const index = () => {
     useEffect(() => {
         isValidate && dispatch(saveBackedUrl(BackUrlFrom));
         isValidate && localStorage.setItem(BACKURL, BackUrlFrom);
-        isValidate ? toast("设定成功") : toast("设定失败");
     }, [isValidate]);
     return (
         <div className={`${Style.BackedFrom}`}>
@@ -37,7 +36,7 @@ const index = () => {
                 setUpEvent={() => {
                     requestValidateBackedUrl(BackUrlFrom).then((res) => {
                         clearState();
-
+                        toast("设定成功");
                         setIsValidate(res.isvalidateUrl);
                     });
                 }}

@@ -1,4 +1,7 @@
 export default function FilterString(p: string, s: string): number {
+    if (p.length === 0) {
+        return 1;
+    }
     if (s.length === 0 || p.length === 0 || s.length < s.length) {
         return -1;
     }
