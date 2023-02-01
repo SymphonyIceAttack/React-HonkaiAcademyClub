@@ -30,6 +30,7 @@
     ],
     "settings": {
         "nuxt.isNuxtApp": false,
-        "DockerRun.DisableAutoGenerateConfig": true
+        "DockerRun.DisableAutoGenerateConfig": true,
+        "typescript.tsdk": "node_modules/typescript/lib"
     }
 }

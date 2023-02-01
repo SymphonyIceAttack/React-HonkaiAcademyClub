@@ -13,7 +13,6 @@ const LeaderboardDisplay = lazy(() => import("./LeaderboardDisplay"));
 const ForecastEquipMentDisplay = lazy(
     () => import("./ForecastEquipMentDisplay")
 );
-
 export default () => {
     return useRoutes([
         {
