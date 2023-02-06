@@ -1,0 +1,32 @@
+.EquipMentItem {
+    height: 200px;
+    width: 150px;
+    box-shadow: 0 0 5px black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    .EquipmetImageContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+        height: 80%;
+        overflow: hidden;
+        transition: all 0.3s;
+        svg {
+            transform: scale(5);
+        }
+    }
+    span {
+        -webkit-text-stroke: 1px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bolder;
+        &:last-child {
+            margin-bottom: 5px;
+        }
+    }
+}

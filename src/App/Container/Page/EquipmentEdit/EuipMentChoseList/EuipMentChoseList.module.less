@@ -1,0 +1,57 @@
+.EuipMentChoseList {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    transition: all 0.3s;
+    .HeaderList {
+        margin: 10px;
+        display: flex;
+        height: 50px;
+        justify-content: space-around;
+        .buttonBack {
+            border-radius: 5px;
+            height: 100%;
+            background-color: rgba(49, 36, 194, 0.487);
+            border: none;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            &:hover {
+                background-color: rgba(49, 36, 194, 0.764);
+            }
+        }
+        input {
+            height: 100%;
+            width: 300px;
+            border: 3px solid rgb(77, 143, 182);
+            border-radius: 5px;
+            color: rgb(77, 143, 182);
+            outline: none;
+            font-size: 18px;
+            padding-left: 5px;
+            box-sizing: border-box;
+            margin-left: 10px;
+        }
+        .buttonSearch {
+            border-radius: 5px;
+            font-size: 18px;
+            -webkit-text-stroke: 1px;
+            margin-left: 15px;
+            height: 100%;
+            background-color: rgba(49, 36, 194, 0.487);
+            border: none;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            &:hover {
+                background-color: rgba(49, 36, 194, 0.764);
+            }
+        }
+    }
+}

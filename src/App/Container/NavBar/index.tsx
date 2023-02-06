@@ -39,6 +39,9 @@ const index: React.FC<Props> = ({ isExtend }) => {
                 <NavItem to="/ForecastEquipMentDisplay" content="装备up预测">
                     <BiChalkboard size={25} />
                 </NavItem>
+                <NavItem to="/EquipmentEdit" content="装备编辑">
+                    <BiChalkboard size={25} />
+                </NavItem>
             </NavList>
         </div>
     );

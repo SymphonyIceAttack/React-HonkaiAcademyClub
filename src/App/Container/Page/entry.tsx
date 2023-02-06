@@ -13,6 +13,8 @@ const LeaderboardDisplay = lazy(() => import("./LeaderboardDisplay"));
 const ForecastEquipMentDisplay = lazy(
     () => import("./ForecastEquipMentDisplay")
 );
+const EquipmentEdit = lazy(() => import("./EquipmentEdit"));
+
 export default () => {
     return useRoutes([
         {
@@ -25,7 +27,11 @@ export default () => {
         },
         {
             path: "/test2",
-            element: <TestPage />,
+            element: (
+                <WrapperPage>
+                    <TestPage />,
+                </WrapperPage>
+            ),
         },
         {
             path: "/InformationDisplay",
@@ -96,6 +102,14 @@ export default () => {
             element: (
                 <WrapperPage>
                     <ForecastEquipMentDisplay />
+                </WrapperPage>
+            ),
+        },
+        {
+            path: "/EquipmentEdit",
+            element: (
+                <WrapperPage>
+                    <EquipmentEdit />
                 </WrapperPage>
             ),
         },
