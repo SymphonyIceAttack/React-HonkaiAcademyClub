@@ -1,5 +1,6 @@
 import Reacti, { useState } from "react";
 import Style from "./EuipMentChoseList.module.less";
+import EquipMentChoseHeader from "./EquipMentChoseHeader";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import type { EquipmentType } from "@/Types/EquipeMentType";
 import type { EquipMentOneListType } from "../useEquioMentAllListHook";
@@ -32,40 +33,26 @@ const index: React.FC<Props> = ({
         <div
             className={`${Style.EuipMentChoseList}`}
             style={{ top: isEquipMentListShow ? "0px" : "100%" }}>
-            <div className={`${Style.HeaderList}`}>
-                <button
-                    className={`${Style.buttonBack}`}
-                    onClick={() => {
-                        closeEvent();
-                    }}>
-                    <IoMdArrowRoundBack size={40} />
-                </button>
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    value={inputSearch}
-                    onChange={(ev) => {
-                        seTinputSearch(ev.target.value);
-                    }}
-                    placeholder={`请输入${EquipCurrentMenttType}名称`}
-                />
-
-                <button
-                    className={`${Style.buttonSearch}`}
-                    onClick={() => {
-                        requestEquipMentSearch().then(
-                            (res: {
-                                SearchResultList: EquipMentOneListType[];
-                            }) => {
-                                seTSearchEquipMentResult(res.SearchResultList);
-                            }
-                        );
-                    }}>
-                    搜索
-                </button>
-            </div>
-            
+            <EquipMentChoseHeader
+                closeEvent={() => {
+                    closeEvent();
+                    seTinputSearch("");
+                    seTSearchEquipMentResult([]);
+                }}
+                inputSearch={inputSearch}
+                changeInputSearch={(value) => {
+                    seTinputSearch(value);
+                }}
+                EquipCurrentMenttType={EquipCurrentMenttType}
+                SearchEvent={() => {
+                    requestEquipMentSearch().then(
+                        (res: { SearchResultList: EquipMentOneListType[] }) => {
+                            seTSearchEquipMentResult(res.SearchResultList);
+                        }
+                    );
+                }}
+            />
+            <div>Container</div>
         </div>
     );
 };
