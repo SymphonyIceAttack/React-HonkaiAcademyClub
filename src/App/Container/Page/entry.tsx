@@ -75,11 +75,7 @@ export default () => {
         },
         {
             path: "/BackUrlDisplay",
-            element: (
-                <WrapperPage>
-                    <BackUrlDisplay />
-                </WrapperPage>
-            ),
+            element: <BackUrlDisplay />,
         },
         {
             path: "/ScorePage",

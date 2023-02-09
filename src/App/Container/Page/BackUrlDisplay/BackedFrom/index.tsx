@@ -36,7 +36,7 @@ const index = () => {
                 setUpEvent={() => {
                     requestValidateBackedUrl(BackUrlFrom).then((res) => {
                         clearState();
-                        toast("设定成功");
+                        res.isvalidateUrl && toast("设定成功");
                         setIsValidate(res.isvalidateUrl);
                     });
                 }}
