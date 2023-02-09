@@ -3,9 +3,7 @@ import { RootState } from "../configureStore";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { BACKURL } from "@/utils/Localkey";
 const initialState = {
-    backedUrl:
-        localStorage.getItem(BACKURL) ||
-        "https://honkai-academy-club-backed.vercel.app",
+    backedUrl: localStorage.getItem(BACKURL) || "www.moyuacademybacked.top",
 };
 export const counterSlice = createSlice({
     name: "isLoadingReducers",
