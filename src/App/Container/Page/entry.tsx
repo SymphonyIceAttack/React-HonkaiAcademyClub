@@ -99,23 +99,15 @@ export default () => {
         },
         {
             path: "/ForecastEquipMentDisplay",
-            element: (
-                <WrapperPage>
-                    <ForecastEquipMentDisplay />
-                </WrapperPage>
-            ),
+            element: <ForecastEquipMentDisplay />,
         },
         {
             path: "/EquipmentEdit",
-            element: (
-                <WrapperPage>
-                    <EquipmentEdit />
-                </WrapperPage>
-            ),
+            element: <EquipmentEdit />,
         },
         {
             path: "/",
-            element: <Navigate to="/LoginDisplay" />,
+            element: <Navigate to="/EquipmentEdit" />,
         },
     ]);
 };

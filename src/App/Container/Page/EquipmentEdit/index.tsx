@@ -9,6 +9,7 @@ import TransformTypeKey from "./TransformTypeKey";
 import SwitchButtonBox from "./EquipMentEditHeader/SwitchButtonBox";
 import ComputedWeight from "./EquipMentEditHeader/ComputedWeight";
 import UpLoadEquipMentButton from "./EquipMentEditHeader/UpLoadEquipMentButton";
+import DownLoadEquipMentInput from "./EquipMentEditHeader/DownLoadEquipMentInput";
 const index = () => {
     const [isMasterShow, setIsMasterShow] = useState(true);
     const [isSpareShow, setIsSpareShow] = useState(false);
@@ -46,21 +47,22 @@ const index = () => {
                             : SpareEquipMentAllList
                     }
                 />
-                <ComputedWeight
-                    EquipMentAllList={
-                        isMasterShow
-                            ? MasterEquipMentAllList
-                            : SpareEquipMentAllList
-                    }
+                <DownLoadEquipMentInput
+                    ClickEvent={(decryptedData) => {
+                        setMasterEquipMentAllList(
+                            decryptedData.MasterEquipMentAllList
+                        );
+                        setSpareEquipMentAllList(
+                            decryptedData.SpareEquipMentAllList
+                        );
+                    }}
                 />
-                <ComputedWeight
-                    EquipMentAllList={
-                        isMasterShow
-                            ? MasterEquipMentAllList
-                            : SpareEquipMentAllList
-                    }
+                <UpLoadEquipMentButton
+                    EncryptMessage={{
+                        MasterEquipMentAllList: MasterEquipMentAllList,
+                        SpareEquipMentAllList: SpareEquipMentAllList,
+                    }}
                 />
-                <UpLoadEquipMentButton />
             </EquipMentEditHeader>
             <SwitchEditContainer
                 MasterEquipMentAllList={MasterEquipMentAllList}
