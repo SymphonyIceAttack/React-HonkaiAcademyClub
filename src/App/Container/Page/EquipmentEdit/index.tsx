@@ -1,73 +1,75 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Style from "./EquipmentEdit.module.less";
-import EquipmnetEditContainer from "./EquipmnetEditContainer";
-import EquipMentItem from "./EquipmnetEditContainer/EquipMentItem";
-import EuipMentChoseList from "./EuipMentChoseList";
+import EquipMentEditHeader from "./EquipMentEditHeader";
+import SwitchEditContainer from "./SwitchEditContainer";
+import EuipMentChoseContainer from "./EuipMentChoseContainer";
 import type { EquipmentType } from "@/Types/EquipeMentType";
-import useEquioMentAllListHook from "./useEquioMentAllListHook";
+import useEquipMentAllListHook from "./useEquipMentAllListHook";
 import TransformTypeKey from "./TransformTypeKey";
-
+import SwitchButtonBox from "./EquipMentEditHeader/SwitchButtonBox";
+import ComputedWeight from "./EquipMentEditHeader/ComputedWeight";
+import UpLoadEquipMentButton from "./EquipMentEditHeader/UpLoadEquipMentButton";
 const index = () => {
-    const [EquipMentAllList, setEquipMentAllList] = useEquioMentAllListHook();
-    const [isEquipMentListShow, setisEquipMentListShow] = useState(true);
+    const [isMasterShow, setIsMasterShow] = useState(true);
+    const [isSpareShow, setIsSpareShow] = useState(false);
+
+    const [MasterEquipMentAllList, setMasterEquipMentAllList] =
+        useEquipMentAllListHook();
+    const [SpareEquipMentAllList, setSpareEquipMentAllList] =
+        useEquipMentAllListHook();
+    const [isEquipMentListShow, setisEquipMentListShow] = useState(false);
     const [EquipCurrentMenttType, setEquipCurrentMenttType] =
-        useState<EquipmentType | null>("使魔");
+        useState<EquipmentType | null>(null);
     const [currentClientId, setcurrentClientId] = useState("");
     const EquiMetItemClick = (type: EquipmentType, clientId: string) => {
-        setisEquipMentListShow((isShow) => !isShow);
+        setisEquipMentListShow((isShow) => true);
         setEquipCurrentMenttType(type);
-        const typeKey = TransformTypeKey(type);
-        const EquipMentOneList = EquipMentAllList[typeKey];
-        EquipMentOneList.forEach((item) => {
-            item.clientId == clientId ? setcurrentClientId(clientId) : null;
-        });
+        setcurrentClientId(clientId);
     };
-
     return (
         <div className={`${Style.EquipmentEdit}`}>
-            <EquipmnetEditContainer
-                getArmsList={() =>
-                    EquipMentAllList.arms.map((item) => (
-                        <EquipMentItem
-                            type={"武器"}
-                            key={item.clientId}
-                            clientId={item.clientId}
-                            clickEvent={EquiMetItemClick}
-                        />
-                    ))
-                }
-                getBadgeList={() =>
-                    EquipMentAllList.badge.map((item) => (
-                        <EquipMentItem
-                            type={"徽章"}
-                            clientId={item.clientId}
-                            key={item.clientId}
-                            clickEvent={EquiMetItemClick}
-                        />
-                    ))
-                }
-                getClothingItem={() =>
-                    EquipMentAllList.clothing.map((item) => (
-                        <EquipMentItem
-                            type={"服装"}
-                            clientId={item.clientId}
-                            key={item.clientId}
-                            clickEvent={EquiMetItemClick}
-                        />
-                    ))
-                }
-                getPetItem={() =>
-                    EquipMentAllList.pet.map((item) => (
-                        <EquipMentItem
-                            type={"使魔"}
-                            clientId={item.clientId}
-                            key={item.clientId}
-                            clickEvent={EquiMetItemClick}
-                        />
-                    ))
-                }
+            <EquipMentEditHeader>
+                <SwitchButtonBox
+                    isMasterShow={isMasterShow}
+                    isSpareShow={isSpareShow}
+                    changeMasterShow={(isShow) => {
+                        setIsMasterShow(isShow);
+                    }}
+                    changeSpareShow={(isShow) => {
+                        setIsSpareShow(isShow);
+                    }}
+                />
+                <ComputedWeight
+                    EquipMentAllList={
+                        isMasterShow
+                            ? MasterEquipMentAllList
+                            : SpareEquipMentAllList
+                    }
+                />
+                <ComputedWeight
+                    EquipMentAllList={
+                        isMasterShow
+                            ? MasterEquipMentAllList
+                            : SpareEquipMentAllList
+                    }
+                />
+                <ComputedWeight
+                    EquipMentAllList={
+                        isMasterShow
+                            ? MasterEquipMentAllList
+                            : SpareEquipMentAllList
+                    }
+                />
+                <UpLoadEquipMentButton />
+            </EquipMentEditHeader>
+            <SwitchEditContainer
+                MasterEquipMentAllList={MasterEquipMentAllList}
+                isMasterShow={isMasterShow}
+                SpareEquipMentAllList={SpareEquipMentAllList}
+                isSpareShow={isSpareShow}
+                ClickEvent={EquiMetItemClick}
             />
-            <EuipMentChoseList
+            <EuipMentChoseContainer
                 currentClientId={currentClientId}
                 EquipCurrentMenttType={EquipCurrentMenttType}
                 isEquipMentListShow={isEquipMentListShow}
@@ -77,17 +79,40 @@ const index = () => {
                 ChoseFinishEvent={(EquimentMessage) => {
                     const typeKey = TransformTypeKey(EquipCurrentMenttType!);
                     const EquipMentOneList = structuredClone(
-                        EquipMentAllList[typeKey]
+                        isMasterShow
+                            ? MasterEquipMentAllList[typeKey]
+                            : SpareEquipMentAllList[typeKey]
                     );
                     EquipMentOneList.forEach((item) => {
                         //EquimentMessage
                         if (item.clientId == currentClientId) {
-                            console.log(item);
+                            //这里因为JS中的对象数组保存的是对象的内存地址，所以通过对象字面量的形式
+                            //直接赋值覆盖，并不会影响被保存对象的键值对
+                            // item = { ...EquimentMessage };
+                            item.equipMentUid = EquimentMessage.equipMentUid;
+                            item.ImgSrc = EquimentMessage.ImgSrc;
+                            item.title = EquimentMessage.title;
+                            item.type = EquimentMessage.type;
+                            item.clientId = EquimentMessage.clientId;
+                            item.cost = EquimentMessage.cost;
                         }
                     });
-                    const copyList = structuredClone(EquipMentAllList);
-                    copyList[typeKey] = EquipMentOneList;
-                    setEquipMentAllList(copyList);
+
+                    isMasterShow
+                        ? (MasterEquipMentAllList[typeKey] = [
+                              ...EquipMentOneList,
+                          ])
+                        : (SpareEquipMentAllList[typeKey] = [
+                              ...EquipMentOneList,
+                          ]);
+                    isMasterShow &&
+                        setMasterEquipMentAllList(
+                            structuredClone(MasterEquipMentAllList)
+                        );
+                    isSpareShow &&
+                        setSpareEquipMentAllList(
+                            structuredClone(SpareEquipMentAllList)
+                        );
                 }}
             />
         </div>

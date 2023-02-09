@@ -1,18 +1,22 @@
-import Reacti, { useState } from "react";
-import Style from "./EuipMentChoseList.module.less";
+import Reacti, { useEffect, useState } from "react";
+import Style from "./EuipMentChoseContainer.module.less";
 import EquipMentChoseHeader from "./EquipMentChoseHeader";
-import { IoMdArrowRoundBack } from "react-icons/io";
+import EquipMentChoseList from "./EquipMentChoseList";
 import type { EquipmentType } from "@/Types/EquipeMentType";
-import type { EquipMentOneListType } from "../useEquioMentAllListHook";
+import { toast } from "react-toastify";
+import type { EquipMentOneListType } from "../useEquipMentAllListHook";
 import SearchFetch from "./SearchFetch";
+import { nanoid } from "nanoid";
+import FilterString from "@/utils/FilterStringUtil";
 
 interface Props {
     isEquipMentListShow: boolean;
     currentClientId: string;
     closeEvent: () => void;
     EquipCurrentMenttType: EquipmentType | null;
-    ChoseFinishEvent: (EquimentMessage: any) => void;
+    ChoseFinishEvent: (EquimentMessage: EquipMentOneListType) => void;
 }
+
 const index: React.FC<Props> = ({
     isEquipMentListShow,
     currentClientId,
@@ -29,10 +33,21 @@ const index: React.FC<Props> = ({
         inputSearch,
         currentClientId
     );
+    useEffect(() => {
+        isEquipMentListShow &&
+            requestEquipMentSearch().then(
+                (res: { SearchResultList: EquipMentOneListType[] }) => {
+                    toast(`搜索到${res.SearchResultList.length}条结果`);
+                    seTSearchEquipMentResult(res.SearchResultList);
+                }
+            );
+    }, [isEquipMentListShow]);
     return (
         <div
-            className={`${Style.EuipMentChoseList}`}
-            style={{ top: isEquipMentListShow ? "0px" : "100%" }}>
+            className={`${Style.EuipMentChoseContainer}`}
+            style={{
+                top: isEquipMentListShow ? "0px" : "100%",
+            }}>
             <EquipMentChoseHeader
                 closeEvent={() => {
                     closeEvent();
@@ -47,12 +62,24 @@ const index: React.FC<Props> = ({
                 SearchEvent={() => {
                     requestEquipMentSearch().then(
                         (res: { SearchResultList: EquipMentOneListType[] }) => {
+                            toast(`搜索到${res.SearchResultList.length}条结果`);
                             seTSearchEquipMentResult(res.SearchResultList);
                         }
                     );
                 }}
             />
-            <div>Container</div>
+
+            <EquipMentChoseList
+                SearchEquipMentResult={SearchEquipMentResult.filter(
+                    (item) => FilterString(inputSearch, item.title) !== -1
+                )}
+                ChoseFinishEvent={(Message) => {
+                    closeEvent();
+                    seTinputSearch("");
+                    seTSearchEquipMentResult([]);
+                    ChoseFinishEvent(Message);
+                }}
+            />
         </div>
     );
 };

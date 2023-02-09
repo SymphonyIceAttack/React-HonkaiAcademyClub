@@ -1,0 +1,48 @@
+.EquipMentChoseItem {
+    display: flex;
+    width: 48%;
+    margin-left: 10px;
+    margin-top: 15px;
+    min-width: 250px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgb(104, 111, 94);
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0 0 5px gray;
+    }
+    img {
+        margin: auto 10px;
+        width: 40%;
+        height: 85%;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+    .TextContainer {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        span {
+            overflow: hidden;
+            width: 80%;
+            font-size: 28px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -webkit-text-stroke: 1px;
+            color: rgb(87, 165, 187);
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    .EquipMentChoseItem {
+        width: 90%;
+        margin: 10px auto;
+        .TextContainer {
+            span {
+                font-size: 18px;
+            }
+        }
+    }
+}

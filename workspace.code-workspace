@@ -32,5 +32,13 @@
         "nuxt.isNuxtApp": false,
         "DockerRun.DisableAutoGenerateConfig": true,
         "typescript.tsdk": "node_modules/typescript/lib"
+    },
+    "extensions": {
+        "recommendations": [
+            "runningcoder.react-snippets",
+            "ofhumanbondage.react-proptypes-intellisense",
+            "iceworks-team.iceworks-style-helper",
+            "dsznajder.es7-react-js-snippets"
+        ]
     }
 }

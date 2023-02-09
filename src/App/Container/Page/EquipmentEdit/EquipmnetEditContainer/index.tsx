@@ -5,15 +5,17 @@ interface Props {
     getPetItem: () => React.ReactNode;
     getArmsList: () => React.ReactNode[];
     getBadgeList: () => React.ReactNode[];
+    style: React.CSSProperties;
 }
 const index: React.FC<Props> = ({
     getArmsList,
     getBadgeList,
     getClothingItem,
     getPetItem,
+    style,
 }) => {
     return (
-        <div className={`${Style.EquipmnetEditContainer}`}>
+        <div className={`${Style.EquipmnetEditContainer}`} style={style}>
             <div className={`${Style.LeftSideContainer}`}>
                 {getClothingItem()}
                 {getPetItem()}
