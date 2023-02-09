@@ -15,7 +15,7 @@ const index: React.FC<Props> = ({ isExtend }) => {
             className={`${Style.NavBar}`}
             style={{ width: isExtend ? "240px" : "0px" }}>
             <NavList>
-                <NavItem to="/InformationDisplay" content="成员信息">
+                {/* <NavItem to="/InformationDisplay" content="成员信息">
                     <AiOutlineUnorderedList size={25} />
                 </NavItem>
                 <NavItem to="/InformationModification" content="信息修改">
@@ -35,7 +35,7 @@ const index: React.FC<Props> = ({ isExtend }) => {
                 </NavItem>
                 <NavItem to="/LeaderboardDisplay" content="排行榜">
                     <BiChalkboard size={25} />
-                </NavItem>
+                </NavItem> */}
                 <NavItem to="/ForecastEquipMentDisplay" content="装备up预测">
                     <BiChalkboard size={25} />
                 </NavItem>

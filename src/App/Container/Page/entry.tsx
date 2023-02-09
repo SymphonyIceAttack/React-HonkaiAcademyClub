@@ -17,82 +17,82 @@ const EquipmentEdit = lazy(() => import("./EquipmentEdit"));
 
 export default () => {
     return useRoutes([
-        {
-            path: "/test1",
-            element: (
-                <WrapperPage>
-                    <TestPage />,
-                </WrapperPage>
-            ),
-        },
-        {
-            path: "/test2",
-            element: (
-                <WrapperPage>
-                    <TestPage />,
-                </WrapperPage>
-            ),
-        },
-        {
-            path: "/InformationDisplay",
-            element: (
-                <WrapperPage>
-                    <InformationDisplay />
-                </WrapperPage>
-            ),
-        },
-        {
-            path: "/InformationModification",
-            element: (
-                <WrapperPage>
-                    <InformationModification />
-                </WrapperPage>
-            ),
-        },
-        {
-            path: "/LoginDisplay",
-            element: (
-                <WrapperPage>
-                    <LoginDisplay />
-                </WrapperPage>
-            ),
-        },
-        {
-            path: "/RegisterDisplay",
-            element: (
-                <WrapperPage>
-                    <RegisterDisplay />
-                </WrapperPage>
-            ),
-        },
-        {
-            path: "/MessageBoard",
-            element: (
-                <WrapperPage>
-                    <MessageBoard />
-                </WrapperPage>
-            ),
-        },
-        {
-            path: "/BackUrlDisplay",
-            element: <BackUrlDisplay />,
-        },
-        {
-            path: "/ScorePage",
-            element: (
-                <WrapperPage>
-                    <ScorePage />
-                </WrapperPage>
-            ),
-        },
-        {
-            path: "/LeaderboardDisplay",
-            element: (
-                <WrapperPage>
-                    <LeaderboardDisplay />
-                </WrapperPage>
-            ),
-        },
+        // {
+        //     path: "/test1",
+        //     element: (
+        //         <WrapperPage>
+        //             <TestPage />,
+        //         </WrapperPage>
+        //     ),
+        // },
+        // {
+        //     path: "/test2",
+        //     element: (
+        //         <WrapperPage>
+        //             <TestPage />,
+        //         </WrapperPage>
+        //     ),
+        // },
+        // {
+        //     path: "/InformationDisplay",
+        //     element: (
+        //         <WrapperPage>
+        //             <InformationDisplay />
+        //         </WrapperPage>
+        //     ),
+        // },
+        // {
+        //     path: "/InformationModification",
+        //     element: (
+        //         <WrapperPage>
+        //             <InformationModification />
+        //         </WrapperPage>
+        //     ),
+        // },
+        // {
+        //     path: "/LoginDisplay",
+        //     element: (
+        //         <WrapperPage>
+        //             <LoginDisplay />
+        //         </WrapperPage>
+        //     ),
+        // },
+        // {
+        //     path: "/RegisterDisplay",
+        //     element: (
+        //         <WrapperPage>
+        //             <RegisterDisplay />
+        //         </WrapperPage>
+        //     ),
+        // },
+        // {
+        //     path: "/MessageBoard",
+        //     element: (
+        //         <WrapperPage>
+        //             <MessageBoard />
+        //         </WrapperPage>
+        //     ),
+        // },
+        // {
+        //     path: "/BackUrlDisplay",
+        //     element: <BackUrlDisplay />,
+        // },
+        // {
+        //     path: "/ScorePage",
+        //     element: (
+        //         <WrapperPage>
+        //             <ScorePage />
+        //         </WrapperPage>
+        //     ),
+        // },
+        // {
+        //     path: "/LeaderboardDisplay",
+        //     element: (
+        //         <WrapperPage>
+        //             <LeaderboardDisplay />
+        //         </WrapperPage>
+        //     ),
+        // },
         {
             path: "/ForecastEquipMentDisplay",
             element: <ForecastEquipMentDisplay />,
