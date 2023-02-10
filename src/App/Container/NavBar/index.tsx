@@ -15,27 +15,33 @@ const index: React.FC<Props> = ({ isExtend }) => {
             className={`${Style.NavBar}`}
             style={{ width: isExtend ? "240px" : "0px" }}>
             <NavList>
-                {/* <NavItem to="/InformationDisplay" content="成员信息">
-                    <AiOutlineUnorderedList size={25} />
-                </NavItem>
-                <NavItem to="/InformationModification" content="信息修改">
-                    <BiUserCircle size={25} />
-                </NavItem>
-                <NavItem to="/MessageBoard" content="留言板">
-                    <BiChalkboard size={25} />
-                </NavItem>
-                <NavItem to="/LoginDisplay" content="登陆页面">
-                    <BiChalkboard size={25} />
-                </NavItem>
-                <NavItem to="/BackUrlDisplay" content="后端服务器指定">
-                    <BiChalkboard size={25} />
-                </NavItem>
-                <NavItem to="/ScorePage" content="评分页面">
-                    <BiChalkboard size={25} />
-                </NavItem>
-                <NavItem to="/LeaderboardDisplay" content="排行榜">
-                    <BiChalkboard size={25} />
-                </NavItem> */}
+                {import.meta.env.DEV ? (
+                    <>
+                        <NavItem to="/InformationDisplay" content="成员信息">
+                            <AiOutlineUnorderedList size={25} />
+                        </NavItem>
+                        <NavItem
+                            to="/InformationModification"
+                            content="信息修改">
+                            <BiUserCircle size={25} />
+                        </NavItem>
+                        <NavItem to="/MessageBoard" content="留言板">
+                            <BiChalkboard size={25} />
+                        </NavItem>
+                        <NavItem to="/LoginDisplay" content="登陆页面">
+                            <BiChalkboard size={25} />
+                        </NavItem>
+                        <NavItem to="/BackUrlDisplay" content="后端服务器指定">
+                            <BiChalkboard size={25} />
+                        </NavItem>
+                        <NavItem to="/ScorePage" content="评分页面">
+                            <BiChalkboard size={25} />
+                        </NavItem>
+                        <NavItem to="/LeaderboardDisplay" content="排行榜">
+                            <BiChalkboard size={25} />
+                        </NavItem>
+                    </>
+                ) : null}
                 <NavItem to="/ForecastEquipMentDisplay" content="装备up预测">
                     <BiChalkboard size={25} />
                 </NavItem>
