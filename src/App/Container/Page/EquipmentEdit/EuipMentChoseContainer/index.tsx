@@ -70,6 +70,7 @@ const index: React.FC<Props> = ({
             />
 
             <EquipMentChoseList
+                isLoadingShow={isEquipMentListShow}
                 SearchEquipMentResult={SearchEquipMentResult.filter(
                     (item) => FilterString(inputSearch, item.title) !== -1
                 )}

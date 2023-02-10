@@ -5,13 +5,16 @@ import type { EquipMentOneListType } from "../../useEquipMentAllListHook";
 import EquipMentChoseItem from "./EquipMentChoseItem";
 import EquipMentChoseNotifation from "./EquipMentChoseNotifation";
 import { nanoid } from "nanoid";
+
 interface Props {
     SearchEquipMentResult: EquipMentOneListType[];
     ChoseFinishEvent: (Message: EquipMentOneListType) => void;
+    isLoadingShow: boolean;
 }
 const index: React.FC<Props> = ({
     SearchEquipMentResult,
     ChoseFinishEvent,
+    isLoadingShow,
 }) => {
     useEffect(() => {
         const eles = document.querySelectorAll(
@@ -34,8 +37,10 @@ const index: React.FC<Props> = ({
     }, [SearchEquipMentResult]);
     return (
         <div className={`${Style.EquipMentChoseList}`}>
-            {SearchEquipMentResult.length === 0 ? (
-                <EquipMentChoseNotifation />
+            {isLoadingShow ? (
+                SearchEquipMentResult.length === 0 ? (
+                    <EquipMentChoseNotifation />
+                ) : null
             ) : null}
             {SearchEquipMentResult.map((item) => {
                 return (
