@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Style from "./ForecastEchartsContainer.module.less";
 import type { EquipmentItemType } from "../../index";
+import EquipMentLoadingNotifation from "./EquipMentLoadingNotifation";
 type EChartsOption = echarts.EChartsOption;
 import * as echarts from "echarts";
 import moment from "moment";
@@ -51,6 +52,8 @@ const index: React.FC<Props> = ({ EquipmentList, choseEquipMent }) => {
         <div className={`${Style.ForecastEchartsContainer}`}>
             {ShowEchartsEquipment !== undefined ? (
                 <div ref={EachartRef} className={Style.Echart}></div>
+            ) : EquipmentList.length === 0 ? (
+                <EquipMentLoadingNotifation />
             ) : null}
         </div>
     );

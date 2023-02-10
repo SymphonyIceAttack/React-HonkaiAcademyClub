@@ -3,7 +3,10 @@ import { RootState } from "../configureStore";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { BACKURL } from "@/utils/Localkey";
 const initialState = {
-    backedUrl: localStorage.getItem(BACKURL) || "https://www.moyuacademybacked.top",
+    backedUrl:
+        localStorage.getItem(BACKURL) || import.meta.env.DEV
+            ? "http://localhost:3008"
+            : "https://www.moyuacademybacked.top",
 };
 export const counterSlice = createSlice({
     name: "isLoadingReducers",

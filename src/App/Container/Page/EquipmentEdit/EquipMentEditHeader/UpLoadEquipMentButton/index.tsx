@@ -21,7 +21,7 @@ const index: React.FC<Props> = ({ EncryptMessage }) => {
                     requestEncryptEquipMent().then(
                         (res: { ciphertext: string }) => {
                             setMaskShare(res.ciphertext);
-                            toast("分享码已生成c点击分享按钮进行拷贝");
+                            toast("分享码已生成点击分享按钮进行拷贝");
                         }
                     );
                 }}>
