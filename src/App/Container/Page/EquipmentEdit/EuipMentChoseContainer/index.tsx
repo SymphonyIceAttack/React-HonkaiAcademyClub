@@ -41,6 +41,7 @@ const index: React.FC<Props> = ({
                     seTSearchEquipMentResult(res.SearchResultList);
                 }
             );
+
     }, [isEquipMentListShow]);
     return (
         <div
