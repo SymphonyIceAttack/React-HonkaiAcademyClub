@@ -26,9 +26,12 @@ const index: React.FC<Props> = ({ ClickEvent }) => {
                 className={`${Style.IconContainer}`}
                 onClick={() => {
                     requestDecryptEquipMent().then(
-                        (res: { decryptedData: EncryptMessageType }) => {
-                            ClickEvent(res.decryptedData);
-                            toast("载入成功");
+                        (res: { decryptedData: EncryptMessageType | null }) => {
+                            res.decryptedData !== null &&
+                                ClickEvent(res.decryptedData);
+                            res.decryptedData !== null
+                                ? toast("载入成功")
+                                : toast("编码不存在");
                         }
                     );
                 }}>
