@@ -6,7 +6,7 @@ const initialState = {
     backedUrl:
         localStorage.getItem(BACKURL) || import.meta.env.DEV
             ? "http://localhost:3008"
-            : "https://www.huancaibingxi.online",
+            : "http://www.huancaibingxi.online",
 };
 export const counterSlice = createSlice({
     name: "isLoadingReducers",
