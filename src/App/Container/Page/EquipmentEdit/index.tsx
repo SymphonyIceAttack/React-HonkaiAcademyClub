@@ -3,22 +3,29 @@ import Style from "./EquipmentEdit.module.less";
 import EquipMentEditHeader from "./EquipMentEditHeader";
 import SwitchEditContainer from "./SwitchEditContainer";
 import EuipMentChoseContainer from "./EuipMentChoseContainer";
+import FantasySkillContainer from "./FantasySkillContainer";
 import type { EquipmentType } from "@/Types/EquipeMentType";
 import useEquipMentAllListHook from "./useEquipMentAllListHook";
+import useFantasySkillHook from "./useFantasySkillHook";
 import TransformTypeKey from "./TransformTypeKey";
 import SwitchButtonBox from "./EquipMentEditHeader/SwitchButtonBox";
 import ComputedWeight from "./EquipMentEditHeader/ComputedWeight";
 import UpLoadEquipMentButton from "./EquipMentEditHeader/UpLoadEquipMentButton";
 import DownLoadEquipMentInput from "./EquipMentEditHeader/DownLoadEquipMentInput";
+import FantasySkillsButton from "./EquipMentEditHeader/FantasySkillsButton";
 const index = () => {
     const [isMasterShow, setIsMasterShow] = useState(true);
     const [isSpareShow, setIsSpareShow] = useState(false);
 
     const [MasterEquipMentAllList, setMasterEquipMentAllList] =
-        useEquipMentAllListHook();
+        useEquipMentAllListHook("MasterEquipMent");
     const [SpareEquipMentAllList, setSpareEquipMentAllList] =
-        useEquipMentAllListHook();
+        useEquipMentAllListHook("SpareEquipMent");
+    const [FantasySkillList, setFantasySkillList] =
+        useFantasySkillHook("FantasySkill");
     const [isEquipMentListShow, setisEquipMentListShow] = useState(false);
+    const [isFantasySkillShow, setIsFantasySkillShow] = useState(false);
+
     const [EquipCurrentMenttType, setEquipCurrentMenttType] =
         useState<EquipmentType | null>(null);
     const [currentClientId, setcurrentClientId] = useState("");
@@ -40,6 +47,11 @@ const index = () => {
                         setIsSpareShow(isShow);
                     }}
                 />
+                <FantasySkillsButton
+                    ClickEvent={() => {
+                        setIsFantasySkillShow(true);
+                    }}
+                />
                 <ComputedWeight
                     EquipMentAllList={
                         isMasterShow
@@ -55,12 +67,14 @@ const index = () => {
                         setSpareEquipMentAllList(
                             decryptedData.SpareEquipMentAllList
                         );
+                        setFantasySkillList(decryptedData.FantasySkillList)
                     }}
                 />
                 <UpLoadEquipMentButton
                     EncryptMessage={{
                         MasterEquipMentAllList: MasterEquipMentAllList,
                         SpareEquipMentAllList: SpareEquipMentAllList,
+                        FantasySkillList: FantasySkillList,
                     }}
                 />
             </EquipMentEditHeader>
@@ -71,6 +85,26 @@ const index = () => {
                 isSpareShow={isSpareShow}
                 ClickEvent={EquiMetItemClick}
             />
+
+            <FantasySkillContainer
+                FantasySkillList={FantasySkillList}
+                isFantasySkillShow={isFantasySkillShow}
+                closeEvent={() => {
+                    setIsFantasySkillShow(false);
+                }}
+                ClickEvent={(id, content) => {
+                    const NewFantasySkillList = FantasySkillList.map((item) => {
+                        if (item.id == id) {
+                            item.value = content;
+                            return item;
+                        } else {
+                            return item;
+                        }
+                    });
+                    setFantasySkillList(NewFantasySkillList);
+                }}
+            />
+
             <EuipMentChoseContainer
                 currentClientId={currentClientId}
                 EquipCurrentMenttType={EquipCurrentMenttType}

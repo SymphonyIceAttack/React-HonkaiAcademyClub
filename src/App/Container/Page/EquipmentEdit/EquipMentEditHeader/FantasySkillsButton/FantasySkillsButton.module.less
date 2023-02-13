@@ -1,9 +1,11 @@
-.SwitchButtonBox {
+.FantasySkillsButton {
     display: flex;
     align-items: center;
     height: 80px;
     transition: all 0.3s;
+    margin: 0 10px;
     button {
+        border-radius: 5px;
         height: 50%;
         width: 80px;
         cursor: pointer;
@@ -14,23 +16,17 @@
         color: rgb(118, 224, 214);
         transition: all 0.3s;
         font-weight: bolder;
-        &.active {
+        &:hover {
+            box-shadow: 0 0 3px rgb(21, 21, 21);
+        }
+        &:active {
             background-color: rgb(160, 175, 218) !important;
             color: greenyellow;
         }
-        &:first-child {
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-        }
-        &:last-child {
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
     }
 }
-
 @media screen and (max-width: 600px) {
-    .SwitchButtonBox {
+    .FantasySkillsButton {
         button {
             font-size: 14px;
             width: 60px;

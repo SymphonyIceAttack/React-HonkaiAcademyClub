@@ -16,7 +16,9 @@ export type EquipMentAllListType = {
     pet: EquipMentOneListType[];
 };
 
-export default (): [
+export default (
+    PrivateKey: string
+): [
     EquipMentAllListType,
     React.Dispatch<React.SetStateAction<EquipMentAllListType>>
 ] => {
@@ -24,7 +26,7 @@ export default (): [
         useState<EquipMentAllListType>({
             arms: [
                 {
-                    clientId: nanoid(),
+                    clientId: PrivateKey + "A",
                     type: "武器",
                     ImgSrc: "",
                     equipMentUid: "",
@@ -32,7 +34,7 @@ export default (): [
                     cost: 0,
                 },
                 {
-                    clientId: nanoid(),
+                    clientId: PrivateKey + "B",
                     type: "武器",
                     ImgSrc: "",
                     equipMentUid: "",
@@ -40,7 +42,7 @@ export default (): [
                     cost: 0,
                 },
                 {
-                    clientId: nanoid(),
+                    clientId: PrivateKey + "C",
                     type: "武器",
                     ImgSrc: "",
                     equipMentUid: "",
@@ -50,7 +52,7 @@ export default (): [
             ],
             badge: [
                 {
-                    clientId: nanoid(),
+                    clientId: PrivateKey + "D",
                     type: "徽章",
                     ImgSrc: "",
                     equipMentUid: "",
@@ -58,7 +60,7 @@ export default (): [
                     cost: 0,
                 },
                 {
-                    clientId: nanoid(),
+                    clientId: PrivateKey + "E",
                     type: "徽章",
                     ImgSrc: "",
                     equipMentUid: "",
@@ -66,7 +68,7 @@ export default (): [
                     cost: 0,
                 },
                 {
-                    clientId: nanoid(),
+                    clientId: PrivateKey + "F",
                     type: "徽章",
                     ImgSrc: "",
                     equipMentUid: "",
@@ -76,7 +78,7 @@ export default (): [
             ],
             clothing: [
                 {
-                    clientId: nanoid(),
+                    clientId: PrivateKey + "G",
                     type: "服装",
                     ImgSrc: "",
                     equipMentUid: "",
@@ -86,7 +88,7 @@ export default (): [
             ],
             pet: [
                 {
-                    clientId: nanoid(),
+                    clientId: PrivateKey + "H",
                     type: "使魔",
                     ImgSrc: "",
                     equipMentUid: "",

@@ -26,6 +26,9 @@
         },
         {
             "path": "./src/utils"
+        },
+        {
+            "path": "./src/App/Container/Page/EquipmentEdit"
         }
     ],
     "settings": {

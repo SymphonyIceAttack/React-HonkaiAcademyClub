@@ -1,4 +1,5 @@
 import type { EquipMentAllListType } from "../../useEquipMentAllListHook";
+import { FantasySkillType } from "../../useFantasySkillHook";
 import useBackUrlHook from "@/hook/useBackUrlHook";
 import GetHeaderToken from "@/utils/GetHeaderToken";
 import GetLocalAccount from "@/utils/GetLocalAccount";
@@ -6,6 +7,7 @@ import stringify from "json-stringify-safe";
 export type EncryptMessageType = {
     MasterEquipMentAllList: EquipMentAllListType;
     SpareEquipMentAllList: EquipMentAllListType;
+    FantasySkillList: FantasySkillType[];
 };
 export const useEncryptFetch = (EncryptMessage: EncryptMessageType) => {
     const [BackUrl] = useBackUrlHook();

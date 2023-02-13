@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Style from "./DownLoadEquipMentInput.module.less";
 import { BsCloudArrowDownFill } from "react-icons/bs";
-import { useDecryptFetch, EncryptMessageType } from "./EncryptFetch";
+import { EncryptMessageType } from "../UpLoadEquipMentButton/EncryptFetch";
+import { useDecryptFetch } from "./EncryptFetch";
 import { toast } from "react-toastify";
 interface Props {
     ClickEvent: (EncryptMessage: EncryptMessageType) => void;
