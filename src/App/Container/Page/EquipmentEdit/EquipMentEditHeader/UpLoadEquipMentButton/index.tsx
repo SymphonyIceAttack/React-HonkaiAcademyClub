@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Style from "./UpLoadEquipMentButton.module.less";
 import { BiUpload } from "react-icons/bi";
-import ClipboardJS from "clipboard";
 import { toast } from "react-toastify";
 import { useEncryptFetch, EncryptMessageType } from "./EncryptFetch";
 import useClipBoard from "./useClipBoard";
@@ -18,10 +17,16 @@ const index: React.FC<Props> = ({ EncryptMessage }) => {
             <div
                 className={`${Style.UpLoadEquipMentButton}`}
                 onClick={() => {
-                    requestEncryptEquipMent().then(
-                        (res: { ciphertext: string }) => {
-                            setMaskShare(res.ciphertext);
-                            toast("分享码已生成点击分享按钮进行拷贝");
+                    toast.promise(
+                        requestEncryptEquipMent().then(
+                            (res: { ciphertext: string }) => {
+                                setMaskShare(res.ciphertext);
+                            }
+                        ),
+                        {
+                            pending: "Loading",
+                            success: "分享码已生成点击分享按钮进行拷贝",
+                            error: "生成失败请重试",
                         }
                     );
                 }}>
