@@ -4,6 +4,7 @@ import EquipMentEditHeader from "./EquipMentEditHeader";
 import SwitchEditContainer from "./SwitchEditContainer";
 import EuipMentChoseContainer from "./EuipMentChoseContainer";
 import FantasySkillContainer from "./FantasySkillContainer";
+import DemonLinkContainer from "./DemonLinkContainer";
 import type { EquipmentType } from "@/Types/EquipeMentType";
 import useEquipMentAllListHook from "./useEquipMentAllListHook";
 import useFantasySkillHook from "./useFantasySkillHook";
@@ -12,7 +13,8 @@ import SwitchButtonBox from "./EquipMentEditHeader/SwitchButtonBox";
 import ComputedWeight from "./EquipMentEditHeader/ComputedWeight";
 import UpLoadEquipMentButton from "./EquipMentEditHeader/UpLoadEquipMentButton";
 import DownLoadEquipMentInput from "./EquipMentEditHeader/DownLoadEquipMentInput";
-import FantasySkillsButton from "./EquipMentEditHeader/FantasySkillsButton";
+import EquipMentHeaderButton from "./EquipMentEditHeader/EquipMentHeaderButton";
+import useDemonLinkHook from "./useDemonLinkHook";
 const index = () => {
     const [isMasterShow, setIsMasterShow] = useState(true);
     const [isSpareShow, setIsSpareShow] = useState(false);
@@ -21,10 +23,17 @@ const index = () => {
         useEquipMentAllListHook("MasterEquipMent");
     const [SpareEquipMentAllList, setSpareEquipMentAllList] =
         useEquipMentAllListHook("SpareEquipMent");
-    const [FantasySkillList, setFantasySkillList] =
-        useFantasySkillHook("FantasySkill");
+    const [MasterFantasySkillList, setMasterFantasySkillList] =
+        useFantasySkillHook("MasterFantasySkill");
+    const [SpareFantasySkillList, setSpareFantasySkillList] =
+        useFantasySkillHook("SpareFantasySkill");
+    const [MasterDemonLinkList, setMasterDemonLinkList] =
+        useDemonLinkHook("MasterDemonLink");
+    const [SpareDemonLinkList, setSpareDemonLinkList] =
+        useDemonLinkHook("SpareDemonLink");
     const [isEquipMentListShow, setisEquipMentListShow] = useState(false);
     const [isFantasySkillShow, setIsFantasySkillShow] = useState(false);
+    const [isDemonLinkShow, setIsDemonLinkShow] = useState(false);
 
     const [EquipCurrentMenttType, setEquipCurrentMenttType] =
         useState<EquipmentType | null>(null);
@@ -34,6 +43,7 @@ const index = () => {
         setEquipCurrentMenttType(type);
         setcurrentClientId(clientId);
     };
+
     return (
         <div className={`${Style.EquipmentEdit}`}>
             <EquipMentEditHeader>
@@ -47,9 +57,16 @@ const index = () => {
                         setIsSpareShow(isShow);
                     }}
                 />
-                <FantasySkillsButton
+                <EquipMentHeaderButton
+                    content="空想技能"
                     ClickEvent={() => {
                         setIsFantasySkillShow(true);
+                    }}
+                />
+                <EquipMentHeaderButton
+                    content="使魔Link"
+                    ClickEvent={() => {
+                        setIsDemonLinkShow(true);
                     }}
                 />
                 <ComputedWeight
@@ -67,14 +84,26 @@ const index = () => {
                         setSpareEquipMentAllList(
                             decryptedData.SpareEquipMentAllList
                         );
-                        setFantasySkillList(decryptedData.FantasySkillList)
+                        setMasterFantasySkillList(
+                            decryptedData.MasterFantasySkillList
+                        );
+                        setSpareFantasySkillList(
+                            decryptedData.SpareFantasySkillList
+                        );
+                        setMasterDemonLinkList(
+                            decryptedData.MasterDemonLinkList
+                        );
+                        setSpareDemonLinkList(decryptedData.SpareDemonLinkList);
                     }}
                 />
                 <UpLoadEquipMentButton
                     EncryptMessage={{
                         MasterEquipMentAllList: MasterEquipMentAllList,
                         SpareEquipMentAllList: SpareEquipMentAllList,
-                        FantasySkillList: FantasySkillList,
+                        MasterFantasySkillList: MasterFantasySkillList,
+                        SpareFantasySkillList: SpareFantasySkillList,
+                        MasterDemonLinkList: MasterDemonLinkList,
+                        SpareDemonLinkList: SpareDemonLinkList,
                     }}
                 />
             </EquipMentEditHeader>
@@ -85,15 +114,48 @@ const index = () => {
                 isSpareShow={isSpareShow}
                 ClickEvent={EquiMetItemClick}
             />
-
+            <DemonLinkContainer
+                isMasterShow={isMasterShow}
+                isDemonLinkShow={isDemonLinkShow}
+                closeEvent={() => {
+                    setIsDemonLinkShow(false);
+                }}
+                DemonLinkList={
+                    isMasterShow ? MasterDemonLinkList : SpareDemonLinkList
+                }
+                ClickEvent={(id, LinkLv) => {
+                    const NewDemonLinkList = (
+                        isMasterShow ? MasterDemonLinkList : SpareDemonLinkList
+                    ).map((item) => {
+                        if (item.id === id) {
+                            item.LinkLv = LinkLv;
+                            return item;
+                        } else {
+                            return item;
+                        }
+                    });
+                    isMasterShow
+                        ? setMasterDemonLinkList(NewDemonLinkList)
+                        : setSpareDemonLinkList(NewDemonLinkList);
+                }}
+            />
             <FantasySkillContainer
-                FantasySkillList={FantasySkillList}
+                isMasterShow={isMasterShow}
+                FantasySkillList={
+                    isMasterShow
+                        ? MasterFantasySkillList
+                        : SpareFantasySkillList
+                }
                 isFantasySkillShow={isFantasySkillShow}
                 closeEvent={() => {
                     setIsFantasySkillShow(false);
                 }}
                 ClickEvent={(id, content) => {
-                    const NewFantasySkillList = FantasySkillList.map((item) => {
+                    const NewFantasySkillList = (
+                        isMasterShow
+                            ? MasterFantasySkillList
+                            : SpareFantasySkillList
+                    ).map((item) => {
                         if (item.id == id) {
                             item.value = content;
                             return item;
@@ -101,7 +163,9 @@ const index = () => {
                             return item;
                         }
                     });
-                    setFantasySkillList(NewFantasySkillList);
+                    isMasterShow
+                        ? setMasterFantasySkillList(NewFantasySkillList)
+                        : setSpareFantasySkillList(NewFantasySkillList);
                 }}
             />
 

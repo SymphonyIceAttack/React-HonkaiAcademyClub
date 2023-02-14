@@ -1,5 +1,5 @@
 import React from "react";
-import Style from "./FantasySkillHeader.module.less";
+import Style from "./DemonLinkHeader.module.less";
 
 import { IoMdArrowRoundBack } from "react-icons/io";
 
@@ -9,7 +9,7 @@ interface Props {
 }
 const index: React.FC<Props> = ({ closeEvent, stuff }) => {
     return (
-        <div className={`${Style.FantasySkillHeader}`}>
+        <div className={`${Style.DemonLinkHeader}`}>
             <button
                 className={`${Style.buttonBack}`}
                 onClick={() => {
@@ -17,7 +17,7 @@ const index: React.FC<Props> = ({ closeEvent, stuff }) => {
                 }}>
                 <IoMdArrowRoundBack size={40} />
             </button>
-            <span>空想技能选择{stuff}</span>
+            <span>使魔Link等级选择{stuff}</span>
         </div>
     );
 };

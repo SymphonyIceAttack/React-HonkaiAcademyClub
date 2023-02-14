@@ -1,16 +1,17 @@
 import React from "react";
-import Style from "./FantasySkillsButton.module.less";
+import Style from "./EquipMentHeaderButton.module.less";
 interface Props {
+    content: string;
     ClickEvent: () => void;
 }
-const index: React.FC<Props> = ({ ClickEvent }) => {
+const index: React.FC<Props> = ({ ClickEvent, content }) => {
     return (
-        <div className={`${Style.FantasySkillsButton}`}>
+        <div className={`${Style.EquipMentHeaderButton}`}>
             <button
                 onClick={() => {
                     ClickEvent();
                 }}>
-                空想技能
+                {content}
             </button>
         </div>
     );

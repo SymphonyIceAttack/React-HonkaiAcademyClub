@@ -26,13 +26,20 @@ const index: React.FC<Props> = ({ ClickEvent }) => {
             <div
                 className={`${Style.IconContainer}`}
                 onClick={() => {
-                    requestDecryptEquipMent().then(
-                        (res: { decryptedData: EncryptMessageType | null }) => {
-                            res.decryptedData !== null &&
-                                ClickEvent(res.decryptedData);
-                            res.decryptedData !== null
-                                ? toast("载入成功")
-                                : toast("编码不存在");
+                    toast.promise(
+                        requestDecryptEquipMent().then(
+                            (res: {
+                                decryptedData: EncryptMessageType | null;
+                            }) => {
+                                res.decryptedData !== null &&
+                                    ClickEvent(res.decryptedData);
+                                res.decryptedData !== null
+                                    ? toast("载入成功")
+                                    : toast("编码不存在");
+                            }
+                        ),
+                        {
+                            pending:"Loading",
                         }
                     );
                 }}>

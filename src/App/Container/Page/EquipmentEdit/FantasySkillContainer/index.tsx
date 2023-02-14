@@ -6,12 +6,14 @@ import FantasySkillHeader from "./FantasySkillHeader";
 import FantasySkillListContainer from "./FantasySkillListContainer";
 import FantasySkillComponent from "./FantasySkillListContainer/FantasySkillComponent";
 interface Props {
+    isMasterShow: boolean;
     FantasySkillList: FantasySkillType[];
     isFantasySkillShow: boolean;
     closeEvent: () => void;
     ClickEvent: (id: string, content: string) => void;
 }
 const index: React.FC<Props> = ({
+    isMasterShow,
     isFantasySkillShow,
     closeEvent,
     ClickEvent,
@@ -23,7 +25,10 @@ const index: React.FC<Props> = ({
             style={{
                 top: isFantasySkillShow ? "0%" : "100%",
             }}>
-            <FantasySkillHeader closeEvent={closeEvent} />
+            <FantasySkillHeader
+                closeEvent={closeEvent}
+                stuff={isMasterShow ? "-主动" : "-被动"}
+            />
             <FantasySkillListContainer>
                 {FantasySkillList.map((item) => (
                     <FantasySkillComponent

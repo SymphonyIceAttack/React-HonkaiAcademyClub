@@ -4,10 +4,14 @@ import useBackUrlHook from "@/hook/useBackUrlHook";
 import GetHeaderToken from "@/utils/GetHeaderToken";
 import GetLocalAccount from "@/utils/GetLocalAccount";
 import stringify from "json-stringify-safe";
+import { DemonLinkType } from "../../useDemonLinkHook";
 export type EncryptMessageType = {
     MasterEquipMentAllList: EquipMentAllListType;
     SpareEquipMentAllList: EquipMentAllListType;
-    FantasySkillList: FantasySkillType[];
+    MasterFantasySkillList: FantasySkillType[];
+    SpareFantasySkillList: FantasySkillType[];
+    MasterDemonLinkList: DemonLinkType[];
+    SpareDemonLinkList: DemonLinkType[];
 };
 export const useEncryptFetch = (EncryptMessage: EncryptMessageType) => {
     const [BackUrl] = useBackUrlHook();
