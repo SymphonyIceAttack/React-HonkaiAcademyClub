@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import React, { useEffect, useMemo, useState } from "react";
 import Style from "./DemonLinkItem.module.less";
-import transformLeveLtopPrcentage from "./transformLeveLtopPrcentage";
+import transformLeveLtopPrcentage from "./TransformLeveltopPrcentage";
 interface Props {
     content: string;
     LinkLv: string;
