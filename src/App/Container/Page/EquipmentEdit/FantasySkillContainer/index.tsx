@@ -1,16 +1,19 @@
 import { nanoid } from "nanoid";
-import React from "react";
+import Reacti, { useState } from "react";
 import { FantasySkillType } from "../useFantasySkillHook";
 import Style from "./FantasySkillContainer.module.less";
 import FantasySkillHeader from "./FantasySkillHeader";
 import FantasySkillListContainer from "./FantasySkillListContainer";
 import FantasySkillComponent from "./FantasySkillListContainer/FantasySkillComponent";
+import FantasySkillALLImg from "./FantasySkillALLImg";
+import { toast } from "react-toastify";
+
 interface Props {
     isMasterShow: boolean;
     FantasySkillList: FantasySkillType[];
     isFantasySkillShow: boolean;
     closeEvent: () => void;
-    ClickEvent: (id: string, content: string) => void;
+    ClickEvent: (id: string, ImgSrc: string) => void;
 }
 const index: React.FC<Props> = ({
     isMasterShow,
@@ -19,6 +22,8 @@ const index: React.FC<Props> = ({
     ClickEvent,
     FantasySkillList,
 }) => {
+    const [CurrentId, setCurrentId] = useState("");
+
     return (
         <div
             className={`${Style.FantasySkillContainer}`}
@@ -34,10 +39,22 @@ const index: React.FC<Props> = ({
                     <FantasySkillComponent
                         FantasySkill={item}
                         key={nanoid()}
-                        ClickEvent={ClickEvent}
+                        CurrentId={CurrentId}
+                        ChoseIDEvent={(id) => {
+                            setCurrentId(id);
+                        }}
                     />
                 ))}
             </FantasySkillListContainer>
+            <FantasySkillALLImg
+                ClickEvent={(ImgSrc) => {
+                    if (CurrentId === "") {
+                        toast("请先选择技能主动/被动");
+                    } else {
+                        ClickEvent(CurrentId, ImgSrc);
+                    }
+                }}
+            />
         </div>
     );
 };

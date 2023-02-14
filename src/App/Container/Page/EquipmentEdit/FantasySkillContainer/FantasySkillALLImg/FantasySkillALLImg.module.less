@@ -1,0 +1,40 @@
+.FantasySkillALLImg {
+    width: 98%;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    .FantasySkillALLContainer {
+        width: 18%;
+        margin: 10px 3.5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .ImgBox {
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgb(179, 140, 81);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 80%;
+                transition: all 0.3s;
+                cursor: pointer;
+                &:hover {
+                    scale: 1.05;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .FantasySkillALLImg {
+        .FantasySkillALLContainer {
+            .ImgBox {
+                height: auto;
+                padding: 5px;
+            }
+        }
+    }
+}

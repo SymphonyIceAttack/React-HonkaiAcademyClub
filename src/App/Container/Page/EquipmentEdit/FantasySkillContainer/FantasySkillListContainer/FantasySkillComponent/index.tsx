@@ -2,31 +2,31 @@ import { nanoid } from "nanoid";
 import React from "react";
 import { FantasySkillType } from "../../../useFantasySkillHook";
 import Style from "./FantasySkillComponent.module.less";
-import FantasySkillStringListItem from "./FantasySkillStringListItem";
-import useFantasySkillStringListHook from "./useFantasySkillStringListHook";
+import Src from "/fish.png";
+
 interface Props {
     FantasySkill: FantasySkillType;
-    ClickEvent: (id: string, content: string) => void;
+    CurrentId: string;
+    ChoseIDEvent: (id: string) => void;
 }
-const index: React.FC<Props> = ({ FantasySkill, ClickEvent }) => {
-    const [FantasySkillStringList] = useFantasySkillStringListHook();
-
+const index: React.FC<Props> = ({ FantasySkill, CurrentId, ChoseIDEvent }) => {
     return (
-        <div className={`${Style.FantasySkillComponent}`}>
-            <span>{FantasySkill.category}</span>
-            <input
-                type="text"
-                disabled={true}
-                placeholder={FantasySkill.value}
-            />
-            {FantasySkillStringList.map((item) => (
-                <FantasySkillStringListItem
-                    ClickEvent={ClickEvent}
-                    key={nanoid()}
-                    content={item}
-                    id={FantasySkill.id}
-                />
-            ))}
+        <div
+            className={`${Style.FantasySkillComponent} ${
+                CurrentId === FantasySkill.id ? Style.active : " "
+            }`}>
+            <span>
+                {CurrentId === FantasySkill.id
+                    ? `>${FantasySkill.category}<`
+                    : FantasySkill.category}
+            </span>
+            <div
+                className={`${Style.ImgContainer}`}
+                onClick={() => {
+                    ChoseIDEvent(FantasySkill.id);
+                }}>
+                <img src={FantasySkill.value} alt="" />
+            </div>
         </div>
     );
 };
