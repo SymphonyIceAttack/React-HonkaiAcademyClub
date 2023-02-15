@@ -24,7 +24,8 @@ const index: React.FC<Props> = ({ EncryptMessage }) => {
                             }
                         ),
                         {
-                            pending: "Loading",
+                            pending:
+                                "关注B1黑暗星云喵，关注B1黑暗星云谢谢喵(2008233)Loading",
                             success: "分享码已生成点击分享按钮进行拷贝",
                             error: "生成失败请重试",
                         }

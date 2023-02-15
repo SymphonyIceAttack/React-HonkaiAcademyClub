@@ -34,12 +34,14 @@ const index: React.FC<Props> = ({ ClickEvent }) => {
                                 res.decryptedData !== null &&
                                     ClickEvent(res.decryptedData);
                                 res.decryptedData !== null
-                                    ? toast("载入成功")
+                                    ? toast(
+                                          "载入成功 关注B1黑暗星云喵，关注B1黑暗星云谢谢喵(2008233)"
+                                      )
                                     : toast("编码不存在");
                             }
                         ),
                         {
-                            pending:"Loading",
+                            pending: "Loading",
                         }
                     );
                 }}>
