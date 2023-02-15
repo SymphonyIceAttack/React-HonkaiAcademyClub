@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Style from "./EquipmentEdit.module.less";
+import structuredClone from "@ungap/structured-clone";
 import EquipMentEditHeader from "./EquipMentEditHeader";
 import SwitchEditContainer from "./SwitchEditContainer";
 import EuipMentChoseContainer from "./EuipMentChoseContainer";

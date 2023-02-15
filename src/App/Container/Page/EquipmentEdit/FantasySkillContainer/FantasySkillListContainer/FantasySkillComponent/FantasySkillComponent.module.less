@@ -15,12 +15,14 @@
         text-align: center;
     }
     .ImgContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 5px;
         margin-bottom: 10px;
         height: 80px;
         width: 80px;
         border: 1px solid blueviolet;
-
         cursor: pointer;
         img {
             box-shadow: 0 0 4px rgb(14, 98, 134);
@@ -37,8 +39,35 @@
 }
 @media screen and (max-width: 600px) {
     .FantasySkillComponent {
-        & > img {
-            width: 100%;
+        & > span {
+            font-size: 15px;
+        }
+        .ImgContainer {
+            width: 95%;
+            height: 90px;
+            img {
+                width: 80%;
+            }
+        }
+        &.active .ImgContainer {
+            box-shadow: 0 0 10px rgb(85, 195, 68);
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .FantasySkillComponent {
+        & > span {
+            font-size: 15px;
+        }
+        .ImgContainer {
+            width: 95%;
+            height: 70px;
+            img {
+                width: 80%;
+            }
+        }
+        &.active .ImgContainer {
+            box-shadow: 0 0 10px rgb(85, 195, 68);
         }
     }
 }
