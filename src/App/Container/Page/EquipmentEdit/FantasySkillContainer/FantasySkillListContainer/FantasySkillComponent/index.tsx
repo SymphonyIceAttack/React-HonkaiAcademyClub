@@ -20,6 +20,9 @@ const index: React.FC<Props> = ({ FantasySkill, CurrentId, ChoseIDEvent }) => {
                     ? `>${FantasySkill.category}<`
                     : FantasySkill.category}
             </span>
+            <span className={`${Style.ExclusiveGeneralText}`}>
+                {FantasySkill.ExclusiveGeneral}
+            </span>
             <div
                 className={`${Style.ImgContainer}`}
                 onClick={() => {

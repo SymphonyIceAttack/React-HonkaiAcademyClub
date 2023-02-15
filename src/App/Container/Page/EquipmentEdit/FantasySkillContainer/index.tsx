@@ -13,7 +13,7 @@ interface Props {
     FantasySkillList: FantasySkillType[];
     isFantasySkillShow: boolean;
     closeEvent: () => void;
-    ClickEvent: (id: string, ImgSrc: string) => void;
+    ClickEvent: (id: string, ImgSrc: string, ExclusiveGeneral: string) => void;
 }
 const index: React.FC<Props> = ({
     isMasterShow,
@@ -47,11 +47,11 @@ const index: React.FC<Props> = ({
                 ))}
             </FantasySkillListContainer>
             <FantasySkillALLImg
-                ClickEvent={(ImgSrc) => {
+                ClickEvent={(ImgSrc, ExclusiveGeneral) => {
                     if (CurrentId === "") {
                         toast("请先选择技能主动/被动");
                     } else {
-                        ClickEvent(CurrentId, ImgSrc);
+                        ClickEvent(CurrentId, ImgSrc, ExclusiveGeneral);
                     }
                 }}
             />

@@ -151,7 +151,7 @@ const index = () => {
                 closeEvent={() => {
                     setIsFantasySkillShow(false);
                 }}
-                ClickEvent={(id, ImgSrc) => {
+                ClickEvent={(id, ImgSrc, ExclusiveGeneral) => {
                     const NewFantasySkillList = (
                         isMasterShow
                             ? MasterFantasySkillList
@@ -159,6 +159,7 @@ const index = () => {
                     ).map((item) => {
                         if (item.id == id) {
                             item.value = ImgSrc;
+                            item.ExclusiveGeneral = ExclusiveGeneral;
                             return item;
                         } else {
                             return item;
