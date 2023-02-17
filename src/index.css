@@ -6,8 +6,25 @@
 iframe {
     display: none;
 }
+
 @media screen and (max-width: 600px) {
     iframe {
         display: block;
     }
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: hsl(183, 97%, 27%);
+    --webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0);
+    --webkit-box-shadow: none;
 }
