@@ -32,7 +32,7 @@ const index: React.FC<Props> = ({
             }}>
             <FantasySkillHeader
                 closeEvent={closeEvent}
-                stuff={isMasterShow ? "-主动" : "-被动"}
+                stuff={isMasterShow ? "-主套" : "-备用"}
             />
             <FantasySkillListContainer>
                 {FantasySkillList.map((item) => (

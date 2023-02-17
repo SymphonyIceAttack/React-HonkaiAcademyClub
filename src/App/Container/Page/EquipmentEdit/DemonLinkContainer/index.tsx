@@ -25,7 +25,7 @@ const index: React.FC<Props> = ({
             }}>
             <DemonLinkHeader
                 closeEvent={closeEvent}
-                stuff={isMasterShow ? "-主动" : "-被动"}
+                stuff={isMasterShow ? "-主套" : "-被套"}
             />
             <DemonLinkListComponent
                 DemonLinkList={DemonLinkList}

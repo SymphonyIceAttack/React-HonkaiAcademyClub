@@ -13,7 +13,7 @@ const ForecastEquipMentDisplay = lazy(
     () => import("./ForecastEquipMentDisplay")
 );
 const EquipmentEdit = lazy(() => import("./EquipmentEdit"));
-
+const LocalCollectionPage = lazy(() => import("./LocalCollectionPage"));
 export default () => {
     if (import.meta.env.DEV) {
         return useRoutes([
@@ -86,6 +86,10 @@ export default () => {
                 element: <EquipmentEdit />,
             },
             {
+                path: "/LocalCollectionPage",
+                element: <LocalCollectionPage />,
+            },
+            {
                 path: "/",
                 element: <Navigate to="/EquipmentEdit" />,
             },
@@ -99,6 +103,10 @@ export default () => {
         {
             path: "/EquipmentEdit",
             element: <EquipmentEdit />,
+        },
+        {
+            path: "/LocalCollectionPage",
+            element: <LocalCollectionPage />,
         },
         {
             path: "/",

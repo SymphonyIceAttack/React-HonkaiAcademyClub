@@ -29,6 +29,9 @@
         },
         {
             "path": "./src/App/Container/Page/EquipmentEdit"
+        },
+        {
+            "path": "./src/App/Container/Page/LocalCollectionPage"
         }
     ],
     "settings": {
