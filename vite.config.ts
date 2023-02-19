@@ -15,6 +15,7 @@ export default ({ mode }) => {
         },
         plugins: [
             Unocss({
+                exclude: ["node_modules", "index.html", "package.json"],
                 presets: [
                     presetAttributify({
                         /* preset options */

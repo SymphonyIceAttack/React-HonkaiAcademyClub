@@ -1,0 +1,178 @@
+.LocalCollectionGroupListHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: blanchedalmond;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    &:last-child {
+        border-radius: 5px;
+    }
+    .GroupListNameContainer {
+        display: flex;
+        align-items: center;
+        input {
+            transition: all 0.3s;
+            outline: none;
+            border: none;
+            text-align: center;
+            background-color: whitesmoke;
+            border-radius: 5px;
+            box-sizing: border-box;
+            height: 40px;
+            width: 200px;
+            margin-right: 10px;
+            font-size: 20px;
+            color: rgb(41, 51, 199);
+            &:disabled {
+                background-color: blanchedalmond;
+                color: rgb(114, 117, 116);
+            }
+        }
+        button {
+            transition: all 0.3s;
+            background-color: steelblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 40px;
+            width: 80px;
+            &:hover {
+                box-shadow: 0 0 5px gray;
+            }
+            &:active {
+                box-shadow: 0 0 5px dimgrey;
+            }
+        }
+    }
+    .GroupListCreateButtonBox {
+        justify-content: flex-start;
+        display: flex;
+        align-items: center;
+
+        input {
+            transition: all 0.3s;
+            outline: none;
+            border: none;
+            text-align: center;
+            background-color: whitesmoke;
+            border-radius: 5px;
+            box-sizing: border-box;
+            height: 40px;
+            width: 100px;
+            margin-right: 10px;
+            font-size: 12px;
+            color: rgb(41, 51, 199);
+            &:disabled {
+                background-color: blanchedalmond;
+                color: rgb(114, 117, 116);
+            }
+        }
+        button {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            background-color: steelblue;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            height: 40px;
+            padding: 0 10px;
+            color: violet;
+            &:hover {
+                box-shadow: 0 0 5px gray;
+            }
+            span {
+                font-size: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .GroupListCreateButtonShareBox {
+        display: flex;
+        align-items: center;
+        .GroupListCreateButtonBoxForUpLoad {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            background-color: steelblue;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            height: 40px;
+            padding: 0 10px;
+            font-size: 20px;
+            color: violet;
+            &:hover {
+                box-shadow: 0 0 5px gray;
+            }
+        }
+        .GroupListCreateButtonBoxForCopy {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            background-color: steelblue;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            height: 40px;
+            padding: 0 10px;
+            font-size: 20px;
+            color: violet;
+            margin-left: 10px;
+            &:hover {
+                box-shadow: 0 0 5px gray;
+            }
+        }
+    }
+}
+@scalemin: 0.8;
+@media screen and (max-width: 600px) {
+    .LocalCollectionGroupListHeader {
+        .GroupListNameContainer {
+            input {
+                margin-right: 5px;
+                scale: @scalemin;
+                font-size: 12px;
+                width: 60px;
+            }
+            button {
+                scale: @scalemin;
+                overflow: hidden;
+                width: 40px;
+                font-size: 12px;
+            }
+        }
+        .GroupListCreateButtonBox {
+            width: 176px;
+            input {
+                scale: @scalemin;
+                margin-right: 5px;
+                font-size: 12px;
+            }
+            button {
+                scale: @scalemin;
+                span {
+                    font-size: 12px;
+                }
+            }
+        }
+        .GroupListCreateButtonShareBox {
+            .GroupListCreateButtonBoxForUpLoad {
+                scale: @scalemin;
+                font-size: 12px;
+                padding: 0;
+            }
+            .GroupListCreateButtonBoxForCopy {
+                margin: 0;
+                padding: 0 5px;
+                scale: @scalemin;
+                font-size: 12px;
+            }
+        }
+    }
+}

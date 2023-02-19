@@ -1,0 +1,144 @@
+.LocalCollectionGroupItem {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    height: 60px;
+    &:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .LocalCollectionGroupItemMaskShareContainer {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        span {
+            font-size: 25px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px violet;
+            margin-right: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding: 0 5px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            padding: 5px 10px;
+            background-color: violet;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px seagreen;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+                box-shadow: 0 0 10px seagreen;
+            }
+        }
+    }
+    .LocalCollectionGroupItemEditContainer {
+        width: 405;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input {
+            box-sizing: border-box;
+            height: 40px;
+            font-size: 25px;
+            line-height: 40px;
+            text-align: center;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px lightcyan;
+            width: 200px;
+            margin-right: 10px;
+            transition: all 0.3s;
+            color: rgb(67, 146, 188, 255);
+            &:hover {
+                box-shadow: 0 0 10px tan;
+            }
+            &:disabled {
+                color: gray;
+            }
+        }
+        button {
+            background-color: violet;
+            cursor: pointer;
+            height: 40px;
+            padding: 0 5px;
+            font-size: 25px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px lightcyan;
+            transition: all 0.3s;
+            &:hover {
+                box-shadow: 0 0 10px tan;
+            }
+            svg {
+                margin-top: 5px;
+            }
+        }
+    }
+    .LocalCollectionGroupItemDeleteContainer {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+            background-color: violet;
+            cursor: pointer;
+            height: 40px;
+            padding: 0 5px;
+            font-size: 25px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px seagreen;
+            transition: all 0.3s;
+            &:hover {
+                box-shadow: 0 0 10px tan;
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .LocalCollectionGroupItem {
+        .LocalCollectionGroupItemMaskShareContainer {
+            span {
+                font-size: 12px;
+            }
+            button {
+                svg {
+                    scale: 0.6;
+                }
+            }
+        }
+        .LocalCollectionGroupItemEditContainer {
+            input {
+                width: 100px;
+                font-size: 12px;
+            }
+            button {
+                svg {
+                    scale: 0.6;
+                }
+            }
+        }
+        .LocalCollectionGroupItemDeleteContainer {
+            button {
+                svg {
+                    scale: 0.6;
+                }
+            }
+        }
+    }
+}
