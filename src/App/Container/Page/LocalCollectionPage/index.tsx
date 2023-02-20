@@ -100,6 +100,16 @@ const index = () => {
                     });
                     setLocalCollectionGroup(NewLocalCollectionGroup);
                 }}
+                DeleteGroupListEvent={(GroupId) => {
+                    const NewLocalCollectionGroup: LocalCollectionGroupType[] =
+                        [...LocalCollectionGroup];
+
+                    setLocalCollectionGroup(
+                        NewLocalCollectionGroup.filter((item) => {
+                            return item.id !== GroupId;
+                        })
+                    );
+                }}
                 LocalCollectionGroup={LocalCollectionGroup}
             />
         </div>

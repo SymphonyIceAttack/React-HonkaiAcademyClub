@@ -48,10 +48,8 @@
         }
     }
     .GroupListCreateButtonBox {
-        justify-content: flex-start;
         display: flex;
         align-items: center;
-
         input {
             transition: all 0.3s;
             outline: none;
@@ -141,6 +139,7 @@
                 width: 60px;
             }
             button {
+                margin-left: -20px;
                 scale: @scalemin;
                 overflow: hidden;
                 width: 40px;
@@ -148,15 +147,18 @@
             }
         }
         .GroupListCreateButtonBox {
-            width: 176px;
             input {
+                display: block;
                 scale: @scalemin;
                 margin-right: 5px;
                 font-size: 12px;
+                width: 75px;
             }
             button {
+                margin-left: -20px;
                 scale: @scalemin;
                 span {
+                    margin-right: 5px;
                     font-size: 12px;
                 }
             }

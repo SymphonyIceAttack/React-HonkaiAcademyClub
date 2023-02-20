@@ -13,6 +13,7 @@ interface Props {
         ItemName: string
     ) => void;
     DeleteGroupItem: (GroupId: string, ItemId: string) => void;
+    DeleteGroupListEvent: (GroupId: string) => void;
 }
 const index: React.FC<Props> = ({
     LocalCollectionGroup,
@@ -20,6 +21,7 @@ const index: React.FC<Props> = ({
     SaveGroupListName,
     SaveGroupItemName,
     DeleteGroupItem,
+    DeleteGroupListEvent,
 }) => {
     return (
         <div className={`${Style.LocalCollectionContainer}`}>
@@ -36,6 +38,7 @@ const index: React.FC<Props> = ({
                     SaveGroupListName={SaveGroupListName}
                     SaveGroupItemName={SaveGroupItemName}
                     DeleteGroupItem={DeleteGroupItem}
+                    DeleteGroupListEvent={DeleteGroupListEvent}
                 />
             ))}
         </div>

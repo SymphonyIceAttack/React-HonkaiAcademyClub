@@ -4,6 +4,7 @@ import type { LocalCollectionGroupType } from "../../../useLocalCollectionGroupH
 import { AiFillEdit, AiFillSave } from "react-icons/ai";
 import { IoIosCreate } from "react-icons/io";
 import { FiShare } from "react-icons/fi";
+import { RiDeleteBinFill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import useGroupListMaskShareHook from "./useGroupListMaskShareHook";
 import useClipBoard from "../useClipBoard";
@@ -14,6 +15,7 @@ interface Porps {
     MaskShareLength: number;
     CreateMaskItemEvent: (GroupId: string, MaskShare: string) => void;
     SaveGroupListName: (GroupId: string, GroupListName: string) => void;
+    DeleteGroupListEvent: (GroupId: string) => void;
 }
 
 const index: React.FC<Porps> = ({
@@ -23,6 +25,7 @@ const index: React.FC<Porps> = ({
     id,
     CreateMaskItemEvent,
     SaveGroupListName,
+    DeleteGroupListEvent,
 }) => {
     const [requestGroupListMaskShare] = useGroupListMaskShareHook(
         LocalCollectionGroupOneList
@@ -119,6 +122,13 @@ const index: React.FC<Porps> = ({
                     className={`${Style.GroupListCreateButtonBoxForCopy}`}
                     ref={ButtonRef}>
                     <FiShare size={30} color="white" />
+                </button>
+                <button
+                    className={`${Style.GroupListCreateButtonBoxForCopy}`}
+                    onClick={() => {
+                        DeleteGroupListEvent(id);
+                    }}>
+                    <RiDeleteBinFill size={30} color="white" />
                 </button>
             </div>
         </div>
